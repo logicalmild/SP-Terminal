@@ -2,7 +2,8 @@ var LastCommand = '';
 var TitleCommand = 'SP> ';
 var ListSelected = '';
 var SiteUrl = '';
-var GreetingMessage = 'Welcome to terminal for SharePoint via browser interface [Version 1.0.0.0] \nCreated by Saranchai Anunthananaruporn. All rights reserved\n\nType \'Help\' for suggest the command.\n\n';
+var Version = '1.0.0.1';
+var GreetingMessage = 'Welcome to terminal for SharePoint via browser interface [Version '+Version+'] \nCreated by Saranchai Anunthananaruporn. All rights reserved\n\nType \'Help\' for suggest the command.\n\n';
 
 var command = {
     '[Site Information]':{
