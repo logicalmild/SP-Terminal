@@ -90,7 +90,7 @@ var terminal = $('#term_demo').terminal(function(command) {
         Listname.splice(0,2);
         Listname = Listname.toString();
         Listname = Listname.replace(/,/g,' ');
-        text = QueryList(Listname,query);
+        //text = QueryList(Listname,query);
         // terminal.set_prompt('ListName> ');
 
         terminal.push(function(command2) {
