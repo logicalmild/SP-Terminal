@@ -101,11 +101,11 @@ var terminal = $('#term_demo').terminal(function(command) {
 
                 text = GetItemByRestAPI(ListName,Query);
                 text = JSON.stringify(text, null , 2);
-                text = text.replace(/"/g,'');
-                text = text.replace(/,/g,'');
-                text = text.replace(/{/g,'');
-                text = text.replace(/}/g,'');
-                text = text.replace(/:/g,'\t\t');
+                // text = text.replace(/"/g,'');
+                // text = text.replace(/,/g,'');
+                // text = text.replace(/{/g,'');
+                // text = text.replace(/}/g,'');
+                // text = text.replace(/:/g,'\t\t');
 
             }, {
                 prompt: 'Query > '
