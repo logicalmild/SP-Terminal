@@ -86,11 +86,31 @@ var terminal = $('#term_demo').terminal(function(command) {
 
         var text ='';
         var Listname = command.split(' ');
+        var query = '';
         Listname.splice(0,2);
         Listname = Listname.toString();
         Listname = Listname.replace(/,/g,' ');
-        text = QueryList(Listname);
+        text = QueryList(Listname,query);
         // terminal.set_prompt('ListName> ');
+
+        terminal.push(function(command2) {
+            var history = terminal.history();
+            terminal.clear();
+            history.disable();
+            
+            terminal.push(function(command2) {
+        
+                terminal.echo('execute your command here');
+                    
+            }, {
+                prompt: terminal.set_prompt('Query> ')
+            });
+        
+        });
+
+
+
+
         this.echo(text);
 
 
@@ -266,8 +286,8 @@ function PackTextRow(Reserve,data){
     return text;
 }
 
-function QueryList(Listname){
-    var data = GetItemByRestAPI(Listname,'');
+function QueryList(Listname,query){
+    var data = GetItemByRestAPI(Listname,query);
     text = JSON.stringify(data, null , 2);
     text = text.replace(/"/g,'');
     text = text.replace(/,/g,'');
