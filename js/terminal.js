@@ -99,7 +99,7 @@ var terminal = $('#term_demo').terminal(function(command) {
                 terminal.echo(command3);
                 Query = command3;
 
-                text = GetItemByRestAPI(ListName,query);
+                text = GetItemByRestAPI(ListName,Query);
                 text = JSON.stringify(HelpMessage, null , 2);
                 text = text.replace(/"/g,'');
                 text = text.replace(/,/g,'');
