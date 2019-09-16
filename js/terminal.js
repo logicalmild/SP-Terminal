@@ -103,7 +103,7 @@ var terminal = $('#term_demo').terminal(function(command) {
                 terminal.echo('execute your command here');
                     
             }, {
-                prompt: terminal.set_prompt('Query> ')
+                prompt: 'Insert query statement'
             });
         
         });
