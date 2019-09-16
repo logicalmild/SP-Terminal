@@ -93,21 +93,15 @@ var terminal = $('#term_demo').terminal(function(command) {
         Listname = Listname.replace(/,/g,' ');
         //text = QueryList(Listname,query);
         // terminal.set_prompt('ListName> ');
-
         terminal.push(function(command2) {
-            var history = terminal.history();
-            terminal.clear();
-            history.disable();
-            
-            terminal.push(function(command2) {
-        
-                terminal.echo('execute your command here');
-                    
-            }, {
-                prompt: 'Insert query statement'
-            });
-        
+    
+            terminal.echo(command2);
+                
+        }, {
+            prompt: 'Insert query statement > '
         });
+    
+
 
 
 
