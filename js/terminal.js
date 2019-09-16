@@ -2,7 +2,7 @@ var LastCommand = '';
 var TitleCommand = 'SP> ';
 var ListSelected = '';
 var SiteUrl = '';
-var Version = '1.0.0.5';
+var Version = '1.0.0.6';
 var LastModified = GetCurrentTime();
 var GreetingMessage = 'Welcome to terminal for SharePoint via browser interface [Version '+Version+'] [Last modified '+LastModified+']\nCreated by Saranchai Anunthananaruporn. All rights reserved\n\nType \'Help\' for suggest the command.\n\n';
 
@@ -99,13 +99,14 @@ var terminal = $('#term_demo').terminal(function(command) {
                 terminal.echo(command3);
                 Query = command3;
 
-                text = GetItemByRestAPI(ListName,Query);
+                text = GetItemByRestAPI(Listname,Query);
                 text = JSON.stringify(text, null , 2);
                 // text = text.replace(/"/g,'');
                 // text = text.replace(/,/g,'');
                 // text = text.replace(/{/g,'');
                 // text = text.replace(/}/g,'');
                 // text = text.replace(/:/g,'\t\t');
+                this.echo(text);
 
             }, {
                 prompt: 'Query > '
@@ -120,7 +121,7 @@ var terminal = $('#term_demo').terminal(function(command) {
 
 
 
-        this.echo(text);
+        
 
 
     }
