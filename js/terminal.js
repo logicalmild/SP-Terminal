@@ -2,7 +2,7 @@ var LastCommand = '';
 var TitleCommand = 'SP> ';
 var ListSelected = '';
 var SiteUrl = '';
-var Version = '1.0.0.3';
+var Version = '1.0.0.4';
 var LastModified = GetCurrentTime();
 var GreetingMessage = 'Welcome to terminal for SharePoint via browser interface [Version '+Version+'] [Last modified '+LastModified+']\nCreated by Saranchai Anunthananaruporn. All rights reserved\n\nType \'Help\' for suggest the command.\n\n';
 
@@ -87,19 +87,32 @@ var terminal = $('#term_demo').terminal(function(command) {
     else if(command.match(/QUERY LIST/gi)){
 
         var text ='';
-        var Listname = command.split(' ');
-        var query = '';
-        Listname.splice(0,2);
-        Listname = Listname.toString();
-        Listname = Listname.replace(/,/g,' ');
-        //text = QueryList(Listname,query);
-        // terminal.set_prompt('ListName> ');
+        var Listname = '';
+        var Query = '';
+
         terminal.push(function(command2) {
     
-            terminal.echo(command2);
+            Listname = command2;
+            
+            terminal.push(function(command3) {
+    
+                terminal.echo(command3);
+                Query = command3;
+
+                text = GetItemByRestAPI(ListName,query);
+                text = JSON.stringify(HelpMessage, null , 2);
+                text = text.replace(/"/g,'');
+                text = text.replace(/,/g,'');
+                text = text.replace(/{/g,'');
+                text = text.replace(/}/g,'');
+                text = text.replace(/:/g,'\t\t');
+
+            }, {
+                prompt: 'Query > '
+            });
                 
         }, {
-            prompt: 'Insert query statement > '
+            prompt: 'List name > '
         });
     
 
