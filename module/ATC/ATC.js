@@ -109,7 +109,7 @@ function ActivateATC(){
        }
        
     },{
-        prompt: 'Choose 1 is random game.\nChoose 2 is sequence game.\nChoose > '
+        prompt: 'Choose 1 is random.\nChoose 2 is sequence.\nChoose > '
     });
 }
 
@@ -117,10 +117,10 @@ function RandomGame(){
     
     terminal.push(function(command){
         terminal.clear();   
-        ArrQ = ArrQ[Math.floor(Math.random()*ArrQ.length)];
-        terminal.echo('Question : ' + ArrQ + '\n');    
+        var index = Math.floor(Math.random() * (ArrQ.length-1)); 
+        terminal.echo('Question : ' + ArrQ[index] + '\n');    
         terminal.push(function(command){
-            terminal.echo('\nAnswer : ' + ArrA + '\n');    
+            terminal.echo('\nAnswer : ' + ArrA[index] + '\n');    
             RandomGame();
 
         },{
