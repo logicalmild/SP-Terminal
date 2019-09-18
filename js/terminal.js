@@ -2,7 +2,7 @@ var LastCommand = '';
 var TitleCommand = 'SP> ';
 var ListSelected = '';
 var SiteUrl = '';
-var Version = '1.0.1.1';
+var Version = '1.0.1.2';
 var GreetingMessage = 'Welcome to terminal for SharePoint via browser interface [Version '+Version+']\nCreated by Saranchai Anunthananaruporn. All rights reserved\n\nType \'Help\' for suggest the command.\n\n';
 
 var command = {
@@ -46,7 +46,7 @@ var terminal = $('#term_demo').terminal(function(command) {
 
     if(command.match(/HELP/gi)){
 
-        var Url = 'https://logicalmild.github.io/SP-Terminal/module/getsiteinfo/getsiteinfo.js';
+        var Url = 'https://logicalmild.github.io/SP-Terminal/module/help/help.js';
         $.ajax({
             url: Url,
             dataType: "script",
