@@ -2,7 +2,7 @@ var LastCommand = '';
 var TitleCommand = 'SP> ';
 var ListSelected = '';
 var SiteUrl = '';
-var Version = '1.0.0.6';
+var Version = '1.0.0.7';
 var LastModified = GetCurrentTime();
 var GreetingMessage = 'Welcome to terminal for SharePoint via browser interface [Version '+Version+'] [Last modified '+LastModified+']\nCreated by Saranchai Anunthananaruporn. All rights reserved\n\nType \'Help\' for suggest the command.\n\n';
 
@@ -29,10 +29,28 @@ var command = {
         'CLEAR                   ':'Clear screen.',
         'LOGOUT                  ':'Logout from terminal',
         'CREDIT                  ':'Credits',
+    },
+    '[Mini Game]':{
+        'RANDOM GAME':'Random the queston interview',
     }
     
 };
 
+var QuestionATC = {
+
+    1:{
+        Question:'test1',
+        Answer:'ans1'
+    },
+    2:{
+        Question:'test2',
+        Answer:'ans2'
+    },
+    3:{
+        Question:'test3',
+        Answer:'ans3'
+    },
+};
 
 
 var terminal = $('#term_demo').terminal(function(command) {
@@ -145,6 +163,21 @@ var terminal = $('#term_demo').terminal(function(command) {
         }
         
         this.echo(text);
+
+    }
+    else if(command.match(/RANDOM GAME/gi)){
+        
+        var text = '';
+        var ArrQ = [];
+        terminal.push(function(command){
+
+            for(i in QuestionATC){
+                ArrQ.push(QuestionATC[i].Question);
+            }
+
+            this.echo(ArrQ);
+
+        });
 
     }
     else if(command.match(/LOGOUT/gi)){
