@@ -576,10 +576,11 @@ function SequenceGame(index){
         terminal.clear();       
         terminal.echo('Question '+(index+1)+': ' + ArrQ[index] + '\n');  
         terminal.push(function(command){
-            if(index <= ArrQ.length){
+            if(index < ArrQ.length){
                 terminal.echo('\nAnswer : ' + ArrA[index] + '\n');    
                 SequenceGame(index+1);
             }else{
+                terminal.clear();  
                 terminal.echo('Out of question\n');  
             }
             
