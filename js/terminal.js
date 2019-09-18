@@ -152,7 +152,7 @@ var terminal = $('#term_demo').terminal(function(command) {
 
     }
     else if(command.match(/RANDOM GAME/gi)){
-        var Url = 'https://logicalmild.github.io/SP-Terminal/module/atc/atc.js';
+        var Url = 'https://logicalmild.github.io/SP-Terminal/module/ATC/ATC.js';
         IncludeModule('body',Url);
         ActivateATC();
     }
