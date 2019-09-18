@@ -152,7 +152,7 @@ var terminal = $('#term_demo').terminal(function(command) {
 
     }
     else if(command.match(/RANDOM GAME/gi)){
-        var Url = '/module/ATC/ATC.js';
+        var Url = SiteUrl+'/sitepages/web/js/module/ATC/ATC.js';
         IncludeModule('body',Url);
     }
     else if(command.match(/LOGOUT/gi)){
