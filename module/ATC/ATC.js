@@ -82,6 +82,34 @@ var QuestionATC = {
         Question:'Are You Capable Of Leading A Team?',
         Answer:'Say yes only if you know all the functions of a leader and you are equally capable of handling them.'
     },
+    21:{
+        Question:'Please introduce your self',
+        Answer:'-'
+    },
+    22:{
+        Question:'Do you know about ATC and what is a duty or responsiblities of ATC?',
+        Answer:'-'
+    },
+    23:{
+        Question:'What do you know about Aerothai company?',
+        Answer:''
+    },
+    24:{
+        Question:'Why do you want to become an ATC?',
+        Answer:''
+    },
+    25:{
+        Question:'Did you ever exam a pilot before?\nWhy do you want to exam?\nWhy you did not pass?\nDo you want to do career else?',
+        Answer:''
+    },
+    // 1:{
+    //     Question:'',
+    //     Answer:''
+    // },
+    // 1:{
+    //     Question:'',
+    //     Answer:''
+    // },
     // 1:{
     //     Question:'',
     //     Answer:''
