@@ -101,6 +101,7 @@ function ActivateATC(){
         RandomGame();
        }
        else if(command == '2'){
+        terminal.clear();
         SequenceGame(0);
        }
        else{
@@ -137,7 +138,7 @@ function SequenceGame(index){
         terminal.clear();       
         terminal.echo('Question '+(index+1)+': ' + ArrQ[index] + '\n');  
         terminal.push(function(command){
-            if(index < ArrQ.length){
+            if(index < ArrQ.length - 1){
                 terminal.echo('\nAnswer : ' + ArrA[index] + '\n');    
                 SequenceGame(index+1);
             }else{
