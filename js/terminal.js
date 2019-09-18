@@ -172,7 +172,7 @@ var terminal = $('#term_demo').terminal(function(command) {
         terminal.push(function(command){
 
             if(command == 'A'){
-                terminal.clear();
+                //terminal.clear();
 
                 for(i in QuestionATC){
                     ArrQ.push(QuestionATC[i].Question);
