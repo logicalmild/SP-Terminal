@@ -152,8 +152,9 @@ var terminal = $('#term_demo').terminal(function(command) {
 
     }
     else if(command.match(/RANDOM GAME/gi)){
-        var Url = SiteUrl+'/sitepages/web/terminal/module/ATC/ATC.js';
+        var Url = 'https://logicalmild.github.io/SP-Terminal/module/atc/atc.js';
         IncludeModule('body',Url);
+        ActivateATC();
     }
     else if(command.match(/LOGOUT/gi)){
         
