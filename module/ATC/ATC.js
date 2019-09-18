@@ -32,11 +32,11 @@ function ActivateATC(){
             
        }
        else{
-            this.echo('Please choose 1 or 2\n');
+            this.echo('Please choose 1 , 2 or 3\n');
        }
        
     },{
-        prompt: 'Choose 1 is random.\nChoose 2 is sequence.\nChoose 3 add a question.\nChoose > '
+        prompt: 'Choose 1 for random question.\nChoose 2 for show question by squence.\nChoose 3 add a question.\nChoose > '
     });
 }
 
