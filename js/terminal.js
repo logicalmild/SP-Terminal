@@ -57,6 +57,66 @@ var QuestionATC = {
         Question:'What Is The Duty Of A Senior Assistant?',
         Answer:'Senior Assistant is responsible for Instructing the pilots about their movements. A senior assistant takes reports from the Junior Executive and reports to the Manager for instructions at extreme  cases.'
     },
+    6:{
+        Question:'',
+        Answer:''
+    },
+    7:{
+        Question:'',
+        Answer:''
+    },
+    8:{
+        Question:'',
+        Answer:''
+    },
+    9:{
+        Question:'',
+        Answer:''
+    },
+    10:{
+        Question:'',
+        Answer:''
+    },
+    11:{
+        Question:'',
+        Answer:''
+    },
+    12:{
+        Question:'',
+        Answer:''
+    },
+    13:{
+        Question:'',
+        Answer:''
+    },
+    14:{
+        Question:'',
+        Answer:''
+    },
+    15:{
+        Question:'',
+        Answer:''
+    },
+    16:{
+        Question:'',
+        Answer:''
+    },
+    17:{
+        Question:'',
+        Answer:''
+    },
+    18:{
+        Question:'',
+        Answer:''
+    },
+    19:{
+        Question:'',
+        Answer:''
+    },
+    20:{
+        Question:'',
+        Answer:''
+    },
     // 1:{
     //     Question:'',
     //     Answer:''
@@ -178,8 +238,21 @@ var terminal = $('#term_demo').terminal(function(command) {
 
     }
     else if(command.match(/RANDOM GAME/gi)){
-
-        RandomGame();
+        
+        terminal.push(function(command){
+           if(command == '1'){
+            RandomGame();
+           }
+           else if(command == '2'){
+            SequenceGame();
+           }
+           else{
+                this.echo('Please choose 1 or 2\n');
+           }
+           
+        },{
+            prompt: 'Choose 1 is random game.\n Choose 2 is sequence game.\nChoose > '
+        });
        
 
     }
@@ -472,8 +545,6 @@ function GetSubsite(){
 
 function RandomGame(){
     
-     
-    
     terminal.push(function(command){
         terminal.clear();   
         var text = '';
@@ -487,7 +558,7 @@ function RandomGame(){
         terminal.echo('Question : ' + ArrQ + '\n');    
         terminal.push(function(command){
 
-            terminal.echo('Answer : ' + ArrA + '\n');    
+            terminal.echo('\nAnswer : ' + ArrA + '\n');    
             RandomGame();
 
         },{
@@ -498,4 +569,30 @@ function RandomGame(){
         prompt: 'Press enter for random question.'
     });
 
+}
+
+function SequenceGame(index){
+    terminal.push(function(command){
+        terminal.clear();   
+        var text = '';
+        var ArrQ = [];
+        var ArrA = [];
+        for(i in QuestionATC){
+            ArrQ.push(QuestionATC[i].Question);
+            ArrA.push(QuestionATC[i].Answer);
+        }
+        terminal.echo('Question : ' + ArrQ + '\n');  
+
+        terminal.push(function(command){
+
+            terminal.echo('\nAnswer : ' + ArrA + '\n');    
+            SequenceGame(i);
+
+        },{
+            prompt: 'Show answer press enter.'
+        });
+
+    },{
+        prompt: 'Press enter for next question.'
+    });
 }
