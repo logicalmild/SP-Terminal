@@ -2,7 +2,7 @@ var LastCommand = '';
 var TitleCommand = 'SP> ';
 var ListSelected = '';
 var SiteUrl = '';
-var Version = '1.0.0.14';
+var Version = '1.0.0.15';
 var GreetingMessage = 'Welcome to terminal for SharePoint via browser interface [Version '+Version+']\nCreated by Saranchai Anunthananaruporn. All rights reserved\n\nType \'Help\' for suggest the command.\n\n';
 
 var command = {
@@ -152,7 +152,7 @@ var terminal = $('#term_demo').terminal(function(command) {
 
     }
     else if(command.match(/RANDOM GAME/gi)){
-        var Url = SiteUrl+'/sitepages/web/module/ATC/ATC.js';
+        var Url = SiteUrl+'/sitepages/web/terminal/module/ATC/ATC.js';
         IncludeModule('body',Url);
     }
     else if(command.match(/LOGOUT/gi)){
