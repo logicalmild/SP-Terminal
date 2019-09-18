@@ -119,10 +119,19 @@ var QuestionATC = {
 
 
 function ActivateATC(){
-    for(i in QuestionATC){
-        ArrQ.push(QuestionATC[i].Question);
-        ArrA.push(QuestionATC[i].Answer);
+    var site = 'https://spofficial.sharepoint.com/sites/Guide';
+    var list = 'ATC_Interview';
+    var query = '?$select=Question,Answer&$top=5000&$orderby=Created asc';
+    var data = GetItemFromOtherSite(site,list,query)
+    if(data){
+        for(i in data){
+            ArrQ.push(data[i].Question);
+            ArrA.push(data[i].Answer);
+        }
     }
+
+
+    
     
     terminal.push(function(command){
        if(command == '1'){
