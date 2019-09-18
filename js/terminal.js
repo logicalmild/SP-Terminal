@@ -2,7 +2,7 @@ var LastCommand = '';
 var TitleCommand = 'SP> ';
 var ListSelected = '';
 var SiteUrl = '';
-var Version = '1.0.1.4';
+var Version = '1.0.1.5';
 var GreetingMessage = 'Welcome to terminal for SharePoint via browser interface [Version '+Version+']\nCreated by Saranchai Anunthananaruporn. All rights reserved\n\nType \'Help\' for suggest the command.\n\n';
 
 var command = {
@@ -30,7 +30,7 @@ var command = {
         'CREDIT                   ':'Credits',
     }, 
     '[Mini Game]':{
-        'RANDOM GAME':'Random the queston interview',
+        'ATC':'ATC Interviewing script',
     }
     
 };
@@ -150,7 +150,7 @@ var terminal = $('#term_demo').terminal(function(command) {
         
 
     }
-    else if(command.match(/RANDOM GAME/gi)){
+    else if(command.match(/ATC/gi)){
         var Url = 'https://logicalmild.github.io/SP-Terminal/module/ATC/ATC.js';
         $.ajax({
             url: Url,
