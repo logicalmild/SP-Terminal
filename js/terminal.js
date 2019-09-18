@@ -40,14 +40,23 @@ var command = {
 
 
 var terminal = $('#term_demo').terminal(function(command) {
-    command = command.toUpperCase();
-    var FirstStep = GetSiteInfo();
 
+    command = command.toUpperCase();
+    SiteUrl = _spPageContextInfo.webServerRelativeUrl;
 
     if(command.match(/HELP/gi)){
 
-        var text = GetHelp();
-        this.echo(text);
+        var Url = 'https://logicalmild.github.io/SP-Terminal/module/getsiteinfo/getsiteinfo.js';
+        $.ajax({
+            url: Url,
+            dataType: "script",
+            success : function(data)
+            {
+                var text = GetHelp();
+                this.echo(text);
+            },
+    
+          });
 
     }
     else if(command.match(/GET LIST/gi)){
@@ -71,14 +80,35 @@ var terminal = $('#term_demo').terminal(function(command) {
     }
     else if(command.match(/SITE INFO/gi)){
 
-        var text = GetSiteInfo();
-        this.echo(text);
+        var Url = 'https://logicalmild.github.io/SP-Terminal/module/getsiteinfo/getsiteinfo.js';
+        $.ajax({
+            url: Url,
+            dataType: "script",
+            success : function(data)
+            {
+                var text = GetSiteInfo();
+                this.echo(text);
+            },
+    
+          });
+        
 
     }
     else if(command.match(/GET SUBSITE/gi)){
 
-        var text = GetSubsite();
-        this.echo(text);
+        var Url = 'https://logicalmild.github.io/SP-Terminal/module/getsubsite/getsubsite.js';
+        $.ajax({
+            url: Url,
+            dataType: "script",
+            success : function(data)
+            {
+                var text = GetSubsite();
+                this.echo(text);
+            },
+    
+          });
+
+        
 
     }
     else if(command.match(/CREDIT/gi)){
@@ -105,24 +135,19 @@ var terminal = $('#term_demo').terminal(function(command) {
     }
     else if(command.match(/GET API/gi)){
         
-        var text = '';
-        var api = command.split(' ');
-            api.splice(0,2);
-            api = api.toString();
-            api = api.replace(/,/g,' ');
+        var Url = 'https://logicalmild.github.io/SP-Terminal/module/api/api.js';
+        $.ajax({
+            url: Url,
+            dataType: "script",
+            success : function(data)
+            {
+                var text = API();
+                this.echo(text);
+            },
+    
+          });
 
-        if(command.toUpperCase() == 'GET API'){
-            
-            text = GetAPI();
-
-        }
-        else{
-            
-            text = GetAPIByProp(api);
-
-        }
         
-        this.echo(text);
 
     }
     else if(command.match(/RANDOM GAME/gi)){
@@ -172,24 +197,8 @@ var terminal = $('#term_demo').terminal(function(command) {
     });
 
 
-function scroll_to_bottom() {
-    var body = $('body');
-    var sHeight = body.prop('scrollHeight');
-    body.scrollTop(sHeight);
-}
 
-function GetHelp(){
-    
-    var text = '\n';
-    var HelpMessage = command;
-    text = JSON.stringify(HelpMessage, null , 2);
-    text = text.replace(/"/g,'');
-    text = text.replace(/,/g,'');
-    text = text.replace(/{/g,'');
-    text = text.replace(/}/g,'');
-    text = text.replace(/:/g,'\t\t');
-    return text;
-}
+
 
 function GetList(ListName){
 
@@ -233,182 +242,12 @@ function GetList(ListName){
     return text;
 }
 
-function GetSiteInfo(){
-    
-    var text = '\n';
-    var Reserve = 50;
-    text = JSON.stringify(_spPageContextInfo, null , 2);
-    text = text.replace(/"/g,'');
-    text = text.replace(/,/g,'');
-    SiteUrl = _spPageContextInfo.webServerRelativeUrl;
-
-    return text;
-}
-
-function PackTextRow(Reserve,data){
-    var text = '';
-    for(i in data){
-        var Title = i;
-        var Desc = data[i];
-        
-        text += GroupData(Reserve,Title,Desc) + '\n';
-    }
-    
-    function GroupData(Reserve,Title,Desc){
-        var text2 = '';
-        for(i=0;i<Reserve;i++){
-            if(Title[i]){
-                text2 += Title[i];
-            }else{
-                text2 += ' ';
-            }
-        }
-        
-        text2 = text2 + Desc;
-        return text2;
-    }
-
-    
-
-    return text;
-}
-
-function QueryList(Listname,query){
-    var data = GetItemByRestAPI(Listname,query);
-    text = JSON.stringify(data, null , 2);
-    text = text.replace(/"/g,'');
-    text = text.replace(/,/g,'');
-    return text;
-}
-
-function GetItemByRestAPI(Listname,Query){ 
-
-    var requestUri = SiteUrl + "/_api/web/lists/getByTitle('"+Listname+"')/items" + Query;
-    var requestHeaders = {
-    "accept": "application/json;odata=verbose"
-    }
-    var extr_Data;
-
-    $.ajax({
-        url: requestUri,
-        type: 'GET',
-        dataType: 'json',
-        async: false,
-        headers: requestHeaders,
-        success: function (data) 
-        {      
-            data = data.d.results; 
-            extr_Data = data;
-            
-        },
-        error: function ajaxError(response) {
-            console.log(response.status + ' ' + response.statusText);
-        }
-    });
-
-    return extr_Data;
-}
 
 
-function GetAPI(){
-
-    var requestUri = SiteUrl + "/_api/web/";
-    var requestHeaders = {
-    "accept": "application/json;odata=verbose"
-    }
-    var text;
-
-    $.ajax({
-        url: requestUri,
-        type: 'GET',
-        dataType: 'json',
-        async: false,
-        headers: requestHeaders,
-        success: function (data) 
-        {      
-        
-            data = data.d; 
-            text = JSON.stringify(data, null , 2);
-            text = text.replace(/"/g,'');
-            text = text.replace(/,/g,'');
-            
-        },
-        error: function ajaxError(response) {
-            console.log(response.status + ' ' + response.statusText);
-        }
-    });
-
-    return text;
-
-}
 
 
-function GetAPIByProp(Prop){
-    
-    var requestUri = SiteUrl + "/_api/web/" + Prop;
-    var requestHeaders = {
-    "accept": "application/json;odata=verbose"
-    }
-    var text;
 
-    $.ajax({
-        url: requestUri,
-        type: 'GET',
-        dataType: 'json',
-        async: false,
-        headers: requestHeaders,
-        success: function (data) 
-        {      
-        
-            data = data.d; 
-            text = JSON.stringify(data, null , 4);
-            text = text.replace(/"/g,'');
-            text = text.replace(/,/g,'');
-            // text = text.replace(/{/g,'');
-            // text = text.replace(/}/g,'');
-            
-            
-        },
-        error: function ajaxError(response) {
-            console.log(response.status + ' ' + response.statusText);
-        }
-    });
 
-    return text;
-}
-function GetSubsite(){
-    var requestUri = "https://spofficial.sharepoint.com/_api/search/query?querytext='contentclass:STS_Site contentclass:STS_Web'&selectproperties='Title,Path'&rowlimit=500";
-    var requestHeaders = {
-    "accept": "application/json;odata=verbose"
-    }
-    var text;
-
-    $.ajax({
-        url: requestUri,
-        type: 'GET',
-        dataType: 'json',
-        async: false,
-        headers: requestHeaders,
-        success: function (data) 
-        {      
-        
-            data = data.d; 
-            text = JSON.stringify(data, null , 4);
-            text = text.replace(/"/g,'');
-            text = text.replace(/,/g,'');
-            // text = text.replace(/{/g,'');
-            // text = text.replace(/}/g,'');
-            
-            
-        },
-        error: function ajaxError(response) {
-            console.log(response.status + ' ' + response.statusText);
-        }
-    });
-
-    return text;
-
-}
 
 
 
