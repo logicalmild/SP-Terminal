@@ -3,8 +3,7 @@ var TitleCommand = 'SP> ';
 var ListSelected = '';
 var SiteUrl = '';
 var Version = '1.0.0.7';
-var LastModified = GetCurrentTime();
-var GreetingMessage = 'Welcome to terminal for SharePoint via browser interface [Version '+Version+'] [Last modified '+LastModified+']\nCreated by Saranchai Anunthananaruporn. All rights reserved\n\nType \'Help\' for suggest the command.\n\n';
+var GreetingMessage = 'Welcome to terminal for SharePoint via browser interface [Version '+Version+']\nCreated by Saranchai Anunthananaruporn. All rights reserved\n\nType \'Help\' for suggest the command.\n\n';
 
 var command = {
     '[Site Information]':{
@@ -177,6 +176,8 @@ var terminal = $('#term_demo').terminal(function(command) {
 
             this.echo(ArrQ);
 
+        },{
+            prompt: 'Random Game > '
         });
 
     }
@@ -464,32 +465,4 @@ function GetSubsite(){
 
     return text;
 
-}
-
-function GetCurrentTime(){
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
-    var yyyy = today.getFullYear();
-    var hour = today.getHours();
-    var min = today.getMinutes();
-    var sec = today.getSeconds();
-
-    if(dd<10) {
-        dd = '0'+dd;
-    } 
-
-    if(mm<10) {
-        mm = '0'+mm;
-    } 
-    if(min<10){
-        min = '0'+min;
-
-    }
-    
-    //today = mm + '/' + dd + '/' + yyyy + '; ' + hour + ":" + min + ":" + sec;
-    today = mm + '/' + dd + '/' + yyyy + ', ' + hour + ":" + min;
-    
-
-    return today;
 }
