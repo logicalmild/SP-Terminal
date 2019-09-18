@@ -89,44 +89,18 @@ var terminal = $('#term_demo').terminal(function(command) {
 
     }
     else if(command.match(/QUERY LIST/gi)){
-
-        var text ='';
-        var Listname = '';
-        var Query = '';
-
-        terminal.push(function(command2) {
-    
-            Listname = command2;
-            
-            terminal.push(function(command3) {
-    
-                terminal.echo(command3);
-                Query = command3;
-
-                text = GetItemByRestAPI(Listname,Query);
-                text = JSON.stringify(text, null , 2);
-                // text = text.replace(/"/g,'');
-                // text = text.replace(/,/g,'');
-                // text = text.replace(/{/g,'');
-                // text = text.replace(/}/g,'');
-                // text = text.replace(/:/g,'\t\t');
-                this.echo(text);
-
-            }, {
-                prompt: 'Query > '
-            });
-                
-        }, {
-            prompt: 'List name > '
-        });
-    
-
-
-
-
-
         
-
+        var Url = 'https://logicalmild.github.io/SP-Terminal/module/querylist/querylist.js';
+        $.ajax({
+            url: Url,
+            dataType: "script",
+            success : function(data)
+            {
+                ModuleQueryList();
+            },
+    
+          });
+        
 
     }
     else if(command.match(/GET API/gi)){
@@ -166,29 +140,15 @@ var terminal = $('#term_demo').terminal(function(command) {
     }
     else if(command.match(/LOGOUT/gi)){
         
-        terminal.push(function(command) {
-            var history = terminal.history();
-            terminal.clear();
-            history.disable();
-            
-            terminal.push(function(command) {
-                if (command.match(/^(y|yes)$/i)) {
-                    // terminal.echo('execute your command here');
-                    terminal.logout();
-                    terminal.clear();
-                    terminal.pop();
-                    history.enable();
-                    
-                } else if (command.match(/^(n|no)$/i)) {
-                    terminal.pop();
-                    history.enable();
-                }
-            }, {
-                prompt: 'Are you sure to log out ? [y/n]\n'
-            });
-        
-        });
-        
+        var Url = 'https://logicalmild.github.io/SP-Terminal/module/logout/logout.js';
+        $.ajax({
+            url: Url,
+            dataType: "script",
+            success : function(data)
+            {
+                LogOut();
+            },
+          });   
     }
     else{
         var text = 'This command is not match.\n';
