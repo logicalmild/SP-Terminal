@@ -53,7 +53,7 @@ var terminal = $('#term_demo').terminal(function(command) {
             success : function(data)
             {
                 var text = GetHelp();
-                this.echo(text);
+                terminal.echo(text);
             },
     
           });
