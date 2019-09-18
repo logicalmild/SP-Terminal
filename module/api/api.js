@@ -1,4 +1,4 @@
-function API(){
+function API(command){
     var text = '';
     var api = command.split(' ');
         api.splice(0,2);
