@@ -2,7 +2,7 @@ var LastCommand = '';
 var TitleCommand = 'SP> ';
 var ListSelected = '';
 var SiteUrl = '';
-var Version = '1.0.0.9';
+var Version = '1.0.0.10';
 var GreetingMessage = 'Welcome to terminal for SharePoint via browser interface [Version '+Version+']\nCreated by Saranchai Anunthananaruporn. All rights reserved\n\nType \'Help\' for suggest the command.\n\n';
 
 var command = {
@@ -173,25 +173,9 @@ var terminal = $('#term_demo').terminal(function(command) {
 
     }
     else if(command.match(/RANDOM GAME/gi)){
-        
-        var text = '';
-        var ArrQ = [];
-        var ArrA = [];
-        terminal.push(function(command){
-          
-                terminal.clear();
 
-                for(i in QuestionATC){
-                    ArrQ.push(QuestionATC[i].Question);
-                    ArrA.push(QuestionATC[i].Answer);
-                }
-                ArrQ = ArrQ[Math.floor(Math.random()*ArrQ.length)];
-
-                this.echo(ArrQ + '\n');         
-
-        },{
-            prompt: 'Random Game > Press enter for random. \n'
-        });
+        RandomGame();
+       
 
     }
     else if(command.match(/LOGOUT/gi)){
@@ -477,5 +461,29 @@ function GetSubsite(){
     });
 
     return text;
+
+}
+
+
+function RandomGame(){
+    
+    var text = '';
+    var ArrQ = [];
+    var ArrA = [];
+    for(i in QuestionATC){
+        ArrQ.push(QuestionATC[i].Question);
+        ArrA.push(QuestionATC[i].Answer);
+    }
+    ArrQ = ArrQ[Math.floor(Math.random()*ArrQ.length)];
+    this.echo(ArrQ + '\n');     
+    terminal.clear();
+    terminal.push(function(command){
+            
+
+        RandomGame();
+
+    },{
+        prompt: 'Random Game > Press enter for random. \n'
+    });
 
 }
