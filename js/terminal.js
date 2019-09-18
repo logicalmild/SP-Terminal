@@ -153,8 +153,16 @@ var terminal = $('#term_demo').terminal(function(command) {
     }
     else if(command.match(/RANDOM GAME/gi)){
         var Url = 'https://logicalmild.github.io/SP-Terminal/module/ATC/ATC.js';
-        IncludeModule('body',Url);
-        ActivateATC();
+        $.ajax({
+            url: Url,
+            dataType: "script",
+            success : function(data)
+            {
+                ActivateATC();
+            },
+    
+          });
+        
     }
     else if(command.match(/LOGOUT/gi)){
         
