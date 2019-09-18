@@ -14,7 +14,7 @@ function ActivateATC(){
     }
 
 
-    
+    terminal.clear();
     
     terminal.push(function(command){
        if(command == '1'){
