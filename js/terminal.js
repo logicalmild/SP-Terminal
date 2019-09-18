@@ -35,6 +35,9 @@ var command = {
     
 };
 
+
+var ArrQ = [];
+var ArrA = [];
 var QuestionATC = {
 
     1:{
@@ -238,13 +241,18 @@ var terminal = $('#term_demo').terminal(function(command) {
 
     }
     else if(command.match(/RANDOM GAME/gi)){
-        
+
+        for(i in QuestionATC){
+            ArrQ.push(QuestionATC[i].Question);
+            ArrA.push(QuestionATC[i].Answer);
+        }
+
         terminal.push(function(command){
            if(command == '1'){
             RandomGame();
            }
            else if(command == '2'){
-            SequenceGame();
+            SequenceGame(0);
            }
            else{
                 this.echo('Please choose 1 or 2\n');
@@ -547,17 +555,9 @@ function RandomGame(){
     
     terminal.push(function(command){
         terminal.clear();   
-        var text = '';
-        var ArrQ = [];
-        var ArrA = [];
-        for(i in QuestionATC){
-            ArrQ.push(QuestionATC[i].Question);
-            ArrA.push(QuestionATC[i].Answer);
-        }
         ArrQ = ArrQ[Math.floor(Math.random()*ArrQ.length)];
         terminal.echo('Question : ' + ArrQ + '\n');    
         terminal.push(function(command){
-
             terminal.echo('\nAnswer : ' + ArrA + '\n');    
             RandomGame();
 
@@ -573,20 +573,12 @@ function RandomGame(){
 
 function SequenceGame(index){
     terminal.push(function(command){
-        terminal.clear();   
-        var text = '';
-        var ArrQ = [];
-        var ArrA = [];
-        for(i in QuestionATC){
-            ArrQ.push(QuestionATC[i].Question);
-            ArrA.push(QuestionATC[i].Answer);
-        }
-        terminal.echo('Question : ' + ArrQ + '\n');  
-
+        terminal.clear();       
+        terminal.echo('Question : ' + ArrQ[index] + '\n');  
         terminal.push(function(command){
 
             terminal.echo('\nAnswer : ' + ArrA + '\n');    
-            SequenceGame(i);
+            SequenceGame(index+1);
 
         },{
             prompt: 'Show answer press enter.'
