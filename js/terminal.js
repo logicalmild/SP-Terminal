@@ -38,15 +38,23 @@ var command = {
 var QuestionATC = {
 
     1:{
-        Question:'test1',
+        Question:'Why are you interested in funeral directing?',
         Answer:'ans1'
     },
     2:{
-        Question:'test2',
+        Question:'What demographics are you most comfortable working and interacting with? Are you more comfortable with elderly clients than younger clients?',
         Answer:'ans2'
     },
     3:{
-        Question:'test3',
+        Question:'How do you handle the emotions of the job?',
+        Answer:'ans3'
+    },
+    4:{
+        Question:'How did you become interested in funeral service? Why do you enjoy working in funeral service?',
+        Answer:'ans3'
+    },
+    5:{
+        Question:'How do you handle stressful situations?',
         Answer:'ans3'
     },
 };
@@ -170,9 +178,8 @@ var terminal = $('#term_demo').terminal(function(command) {
         var ArrQ = [];
         var ArrA = [];
         terminal.push(function(command){
-
-            if(command == 'A'){
-                //terminal.clear();
+          
+                terminal.clear();
 
                 for(i in QuestionATC){
                     ArrQ.push(QuestionATC[i].Question);
@@ -180,12 +187,7 @@ var terminal = $('#term_demo').terminal(function(command) {
                 }
                 ArrQ = ArrQ[Math.floor(Math.random()*ArrQ.length)];
 
-                this.echo(ArrQ);
-
-            }
-            
-
-           
+                this.echo(ArrQ + '\n');         
 
         },{
             prompt: 'Random Game > Press enter for random. \n'
