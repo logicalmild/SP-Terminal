@@ -2,7 +2,7 @@ var LastCommand = '';
 var TitleCommand = 'SP> ';
 var ListSelected = '';
 var SiteUrl = '';
-var Version = '1.0.0.11';
+var Version = '1.0.0.12';
 var GreetingMessage = 'Welcome to terminal for SharePoint via browser interface [Version '+Version+']\nCreated by Saranchai Anunthananaruporn. All rights reserved\n\nType \'Help\' for suggest the command.\n\n';
 
 var command = {
@@ -38,25 +38,30 @@ var command = {
 var QuestionATC = {
 
     1:{
-        Question:'Why are you interested in funeral directing?',
-        Answer:'ans1'
+        Question:'Who Is An Air Traffic Controller (atc)?',
+        Answer:'An ATC is a person who coordinates the movement of air traffic, to ensure that aircraft stay safe distances apart.'
     },
     2:{
-        Question:'What demographics are you most comfortable working and interacting with? Are you more comfortable with elderly clients than younger clients?',
-        Answer:'ans2'
+        Question:'Why An Atc?',
+        Answer:'Because I have a great potential to manage things, and my education also meets the required qualification skills where have complete the training for an ATC and I feel that I can use my knowledge and experience in a resourceful way for this job.'
     },
     3:{
-        Question:'How do you handle the emotions of the job?',
-        Answer:'ans3'
+        Question:'At Which Position Do You Work As An Atc?',
+        Answer:'There are basically three positions: Junior Executive, Senior Assistant and a Manager. Tell them about what position you are applying for.'
     },
     4:{
-        Question:'How did you become interested in funeral service? Why do you enjoy working in funeral service?',
-        Answer:'ans3'
+        Question:' What Is The Job Of A Junior Executive Atc?',
+        Answer:'A Junior Executive has to keep track of all the flights which are arriving and departing at a particular time. In-case if there are two different flights arriving or departing at the same time then he needs to report he Senior Assistant.'
     },
     5:{
-        Question:'How do you handle stressful situations?',
-        Answer:'ans3'
+        Question:'What Is The Duty Of A Senior Assistant?',
+        Answer:'Senior Assistant is responsible for Instructing the pilots about their movements. A senior assistant takes reports from the Junior Executive and reports to the Manager for instructions at extreme  cases.'
     },
+    // 1:{
+    //     Question:'',
+    //     Answer:''
+    // },
+    
 };
 
 
@@ -480,7 +485,6 @@ function RandomGame(){
         }
         ArrQ = ArrQ[Math.floor(Math.random()*ArrQ.length)];
         terminal.echo('Question : ' + ArrQ + '\n');    
-        RandomGame();
         terminal.push(function(command){
 
             terminal.echo('Answer : ' + ArrA + '\n');    
