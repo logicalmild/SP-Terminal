@@ -2,7 +2,7 @@ var LastCommand = '';
 var TitleCommand = 'SP> ';
 var ListSelected = '';
 var SiteUrl = '';
-var Version = '1.0.0.10';
+var Version = '1.0.0.11';
 var GreetingMessage = 'Welcome to terminal for SharePoint via browser interface [Version '+Version+']\nCreated by Saranchai Anunthananaruporn. All rights reserved\n\nType \'Help\' for suggest the command.\n\n';
 
 var command = {
@@ -475,7 +475,7 @@ function RandomGame(){
         ArrA.push(QuestionATC[i].Answer);
     }
     ArrQ = ArrQ[Math.floor(Math.random()*ArrQ.length)];
-    this.echo(ArrQ + '\n');     
+    terminal.echo(ArrQ + '\n');     
     terminal.clear();
     terminal.push(function(command){
             
