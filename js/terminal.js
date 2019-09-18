@@ -467,19 +467,19 @@ function GetSubsite(){
 
 function RandomGame(){
     
-    var text = '';
-    var ArrQ = [];
-    var ArrA = [];
-    for(i in QuestionATC){
-        ArrQ.push(QuestionATC[i].Question);
-        ArrA.push(QuestionATC[i].Answer);
-    }
-    ArrQ = ArrQ[Math.floor(Math.random()*ArrQ.length)];
-    terminal.echo(ArrQ + '\n');     
-    terminal.clear();
+     
+    
     terminal.push(function(command){
-            
-
+        terminal.clear();   
+        var text = '';
+        var ArrQ = [];
+        var ArrA = [];
+        for(i in QuestionATC){
+            ArrQ.push(QuestionATC[i].Question);
+            ArrA.push(QuestionATC[i].Answer);
+        }
+        ArrQ = ArrQ[Math.floor(Math.random()*ArrQ.length)];
+        terminal.echo(ArrQ + '\n');    
         RandomGame();
 
     },{
