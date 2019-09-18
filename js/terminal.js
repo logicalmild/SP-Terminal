@@ -141,7 +141,7 @@ var terminal = $('#term_demo').terminal(function(command) {
             dataType: "script",
             success : function(data)
             {
-                var text = API();
+                var text = API(command);
                 terminal.echo(text);
             },
     
