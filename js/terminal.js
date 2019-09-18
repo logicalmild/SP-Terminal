@@ -479,11 +479,19 @@ function RandomGame(){
             ArrA.push(QuestionATC[i].Answer);
         }
         ArrQ = ArrQ[Math.floor(Math.random()*ArrQ.length)];
-        terminal.echo(ArrQ + '\n');    
+        terminal.echo('Question : ' + ArrQ + '\n');    
         RandomGame();
+        terminal.push(function(command){
+
+            terminal.echo('Answer : ' + ArrA + '\n');    
+            RandomGame();
+
+        },{
+            prompt: 'Show answer press enter.'
+        });
 
     },{
-        prompt: 'Random Game > Press enter for random. \n'
+        prompt: 'Press enter for random question.'
     });
 
 }
