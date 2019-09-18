@@ -574,7 +574,7 @@ function RandomGame(){
 function SequenceGame(index){
     terminal.push(function(command){
         terminal.clear();       
-        terminal.echo('Question : ' + ArrQ[index] + '\n');  
+        terminal.echo('Question '+(index+1)+': ' + ArrQ[index] + '\n');  
         terminal.push(function(command){
             if(index <= ArrQ.length){
                 terminal.echo('\nAnswer : ' + ArrA[index] + '\n');    
