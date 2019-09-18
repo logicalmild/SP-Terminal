@@ -24,12 +24,19 @@ function ActivateATC(){
         terminal.clear();
         SequenceGame(0);
        }
+       else if(command == '3'){
+
+            var link = 'https://spofficial.sharepoint.com/sites/Guide/Lists/ATC_Interview/AllItems.aspx';
+            var win = window.open(link, '_blank');
+            win.focus();
+            
+       }
        else{
             this.echo('Please choose 1 or 2\n');
        }
        
     },{
-        prompt: 'Choose 1 is random.\nChoose 2 is sequence.\nChoose > '
+        prompt: 'Choose 1 is random.\nChoose 2 is sequence.\nChoose 3 add a question.\nChoose > '
     });
 }
 
