@@ -17,6 +17,9 @@ function ActivateATC(){
     terminal.clear();
     
     terminal.push(function(command){
+        
+    terminal.clear();
+    
        if(command == '1'){
         RandomGame();
        }
