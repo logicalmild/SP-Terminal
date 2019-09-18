@@ -576,9 +576,13 @@ function SequenceGame(index){
         terminal.clear();       
         terminal.echo('Question : ' + ArrQ[index] + '\n');  
         terminal.push(function(command){
-
-            terminal.echo('\nAnswer : ' + ArrA[index] + '\n');    
-            SequenceGame(index+1);
+            if(index <= ArrQ.length){
+                terminal.echo('\nAnswer : ' + ArrA[index] + '\n');    
+                SequenceGame(index+1);
+            }else{
+                terminal.echo('Out of question\n');  
+            }
+            
 
         },{
             prompt: 'Show answer press enter.'
