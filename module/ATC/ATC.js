@@ -77,7 +77,7 @@ function RandomGame(index){
 function SequenceGame(index){
     terminal.push(function(command){
         if(command == '1'){
-            var link = 'https://spofficial.sharepoint.com/sites/Guide/Lists/ATC_Interview/EditForm.aspx?ID='+ArrID[index];
+            var link = 'https://spofficial.sharepoint.com/sites/Guide/Lists/ATC_Interview/EditForm.aspx?ID='+ArrID[index-1];
             var win = window.open(link, '_blank');
         }else if(command=='2'){
             SequenceGame(index-2);
