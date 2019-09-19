@@ -29,7 +29,7 @@ function ActivateATC(){
        }
        else if(command == '3'){
             terminal.clear();
-            var link = 'https://spofficial.sharepoint.com/sites/Guide/Lists/ATC_Interview/AllItems.aspx';
+            var link = 'https://spofficial.sharepoint.com/sites/Guide/Lists/ATC_Interview/NewForm.aspx';
             var win = window.open(link, '_blank');
             win.focus();
             
