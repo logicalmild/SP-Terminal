@@ -48,11 +48,18 @@ function ActivateATC(){
 function RandomGame(){
     
     terminal.push(function(command){
+
+        if(command == '1'){
+            var link = 'https://spofficial.sharepoint.com/sites/Guide/Lists/ATC_Interview/EditForm.aspx?ID='+index;
+            var win = window.open(link, '_blank');
+        }
+
         terminal.clear();   
         var index = Math.floor(Math.random() * (ArrQ.length-1)); 
         terminal.echo('Question : ' + ArrQ[index] + '\n');    
         terminal.push(function(command){
             terminal.echo('\nAnswer : ' + ArrA[index] + '\n');    
+            terminal.echo('\n\nPress 1 for edit this item.\n'); 
             RandomGame();
 
         },{
