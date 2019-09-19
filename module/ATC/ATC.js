@@ -71,8 +71,14 @@ function SequenceGame(index){
             var link = 'https://spofficial.sharepoint.com/sites/Guide/Lists/ATC_Interview/EditForm.aspx?ID='+index;
             var win = window.open(link, '_blank');
         }else{
-            terminal.clear();       
-            terminal.echo('Question '+(index+1)+': ' + ArrQ[index] + '\n');  
+            
+            terminal.clear();  
+            if(command == '2'){
+                SequenceGame(index-1);
+            }else{
+                terminal.echo('Question '+(index+1)+': ' + ArrQ[index] + '\n');  
+            }     
+            
             terminal.push(function(command){
 
                 
@@ -81,6 +87,7 @@ function SequenceGame(index){
                         terminal.echo('Question '+(index+1)+': ' + ArrQ[index] + '\n');  
                         terminal.echo('\nAnswer : ' + ArrA[index] + '\n');   
                         terminal.echo('\n\nPress 1 for edit this item.\n'); 
+                        terminal.echo('\n\nPress 2 for back to previous question.\n'); 
                         SequenceGame(index+1);
                     }else{
                         terminal.clear();  
