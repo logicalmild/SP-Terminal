@@ -87,7 +87,7 @@ function SequenceGame(index){
                         terminal.echo('Question '+(index+1)+': ' + ArrQ[index] + '\n');  
                         terminal.echo('\nAnswer : ' + ArrA[index] + '\n');   
                         terminal.echo('\n\nPress 1 for edit this item.\n'); 
-                        terminal.echo('\n\nPress 2 for back to previous question.\n'); 
+                        terminal.echo('Press 2 for back to previous question.\n'); 
                         SequenceGame(index+1);
                     }else{
                         terminal.clear();  
