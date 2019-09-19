@@ -78,7 +78,7 @@ function SequenceGame(index){
                 
                     if(index < ArrQ.length - 1){
                         terminal.echo('\nAnswer : ' + ArrA[index] + '\n');   
-                        terminal.echo('Press 1 for edit this item.\n'); 
+                        terminal.echo('\n\nPress 1 for edit this item.\n'); 
                         SequenceGame(index+1);
                     }else{
                         terminal.clear();  
