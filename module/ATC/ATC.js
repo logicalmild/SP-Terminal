@@ -70,6 +70,8 @@ function SequenceGame(index){
         if(command == '1'){
             var link = 'https://spofficial.sharepoint.com/sites/Guide/Lists/ATC_Interview/EditForm.aspx?ID='+index;
             var win = window.open(link, '_blank');
+        }else if(command=='2'){
+            SequenceGame(index-2);
         }else{
             
             terminal.clear();  
@@ -79,15 +81,13 @@ function SequenceGame(index){
             terminal.push(function(command){
 
                 
-                    if(index < ArrQ.length - 1 && command != '2'){
+                    if(index < ArrQ.length - 1){
                         terminal.clear();       
                         terminal.echo('Question '+(index+1)+': ' + ArrQ[index] + '\n');  
                         terminal.echo('\nAnswer : ' + ArrA[index] + '\n');   
                         terminal.echo('\n\nPress 1 for edit this item.\n'); 
                         terminal.echo('Press 2 for back to previous question.\n'); 
                         SequenceGame(index+1);
-                    }else if(command == '2'){
-                        SequenceGame(index-1);
                     }else{
                         terminal.clear();  
                         terminal.echo('Out of question\n');  
