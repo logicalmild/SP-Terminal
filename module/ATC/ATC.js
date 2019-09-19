@@ -8,8 +8,10 @@ function ActivateATC(){
     var data = GetItemFromOtherSite(site,list,query)
     if(data){
         for(i in data){
-            ArrQ.push(data[i].Question);
-            ArrA.push(data[i].Answer);
+            if(data[i].Question){
+                ArrQ.push(data[i].Question);
+                ArrA.push(data[i].Answer); 
+            }
         }
     }
 
