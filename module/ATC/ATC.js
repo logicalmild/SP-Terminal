@@ -1,16 +1,18 @@
 var ArrQ = [];
 var ArrA = [];
+var ArrID = [];
 
 function ActivateATC(){
     var site = 'https://spofficial.sharepoint.com/sites/Guide';
     var list = 'ATC_Interview';
-    var query = '?$select=Question,Answer&$top=5000&$orderby=Created asc';
+    var query = '?$select=ID,Question,Answer&$top=5000&$orderby=Created asc';
     var data = GetItemFromOtherSite(site,list,query)
     if(data){
         for(i in data){
             if(data[i].Question){
                 ArrQ.push(data[i].Question);
                 ArrA.push(data[i].Answer); 
+                ArrID.push(data[i].ID);
             }
         }
     }
@@ -23,7 +25,7 @@ function ActivateATC(){
     
 
        if(command == '1'){
-        RandomGame();
+        RandomGame(0);
        }
        else if(command == '2'){
         terminal.clear();
@@ -45,7 +47,7 @@ function ActivateATC(){
     });
 }
 
-function RandomGame(){
+function RandomGame(index){
     
     terminal.push(function(command){
 
@@ -75,7 +77,7 @@ function RandomGame(){
 function SequenceGame(index){
     terminal.push(function(command){
         if(command == '1'){
-            var link = 'https://spofficial.sharepoint.com/sites/Guide/Lists/ATC_Interview/EditForm.aspx?ID='+index;
+            var link = 'https://spofficial.sharepoint.com/sites/Guide/Lists/ATC_Interview/EditForm.aspx?ID='+ArrID[index];
             var win = window.open(link, '_blank');
         }else if(command=='2'){
             SequenceGame(index-2);
