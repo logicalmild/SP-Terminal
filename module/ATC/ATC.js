@@ -65,37 +65,36 @@ function RandomGame(){
 
 function SequenceGame(index){
     terminal.push(function(command){
-        terminal.clear();       
-        terminal.echo('Question '+(index+1)+': ' + ArrQ[index] + '\n');  
-        terminal.push(function(command){
+        if(command == '1'){
+            var link = 'https://spofficial.sharepoint.com/sites/Guide/Lists/ATC_Interview/EditForm.aspx?ID='+index;
+            var win = window.open(link, '_blank');
+        }else{
+            terminal.clear();       
+            terminal.echo('Question '+(index+1)+': ' + ArrQ[index] + '\n');  
+            terminal.push(function(command){
 
-            if(command == '1'){
-                var link = 'https://spofficial.sharepoint.com/sites/Guide/Lists/ATC_Interview/EditForm.aspx?ID='+index;
-                var win = window.open(link, '_blank');
-            }else{
-                if(index < ArrQ.length - 1){
-                    terminal.echo('\nAnswer : ' + ArrA[index] + '\n');    
-                    SequenceGame(index+1);
-                }else{
-                    terminal.clear();  
-                    terminal.echo('Out of question\n');  
+                
+                    if(index < ArrQ.length - 1){
+                        terminal.echo('\nAnswer : ' + ArrA[index] + '\n');    
+                        SequenceGame(index+1);
+                    }else{
+                        terminal.clear();  
+                        terminal.echo('Out of question\n');  
 
-                    terminal.push(function(command){
-                            SequenceGame(0);
-                    },{
-                        prompt: 'Replay press enter.'
-                    });
-                }
-            }
+                        terminal.push(function(command){
+                                SequenceGame(0);
+                        },{
+                            prompt: 'Replay press enter.'
+                        });
+                    }      
 
-            
-            
-
-        },{
-            prompt: 'Press 1 for edit this item.\nPress enter for show answer.'
-        });
+            },{
+                prompt: 'Press enter for show answer.'
+            });
+        }
+        
 
     },{
-        prompt: 'Press enter for next question.'
+        prompt: 'Press 1 for edit this item.\nPress enter for next question.'
     });
 }
