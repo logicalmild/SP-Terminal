@@ -164,6 +164,19 @@ var terminal = $('#term_demo').terminal(function(command) {
           });
         
     }
+    else if(command.match(/CAL MATH/gi)){
+        var Url = 'https://logicalmild.github.io/SP-Terminal/module/calmath/calmath.js';
+        $.ajax({
+            url: Url,
+            dataType: "script",
+            success : function(data)
+            {
+                ActivateCalMath();
+            },
+    
+          });
+        
+    }
     else if(command.match(/LOGOUT/gi)){
         
         var Url = 'https://logicalmild.github.io/SP-Terminal/module/logout/logout.js';
