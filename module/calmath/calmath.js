@@ -10,16 +10,25 @@ function ActivateCalMath(){
         
         terminal.clear();
         switch(command){
-            case '1':   
-                    terminal.push(function(digit){
-
-                        PlusNumber(digit);
-
-                    },{
-                        prompt: 'Input digit :'
-                    });
+            case '1':   operation = 'plus'
+                    break;
+            case '2':   operation = 'minus'
+                    break;
+            case '3':   operation = 'multiply'
+                    break;
+            case '4':   operation = 'divide'
+                    break;
+            case '5':   operation = 'random'
                     break;
         }
+
+        terminal.push(function(digit){
+
+            Calculate(digit,operation);
+
+        },{
+            prompt: 'Input digit :'
+        });
         
 
     },{
@@ -30,7 +39,7 @@ function ActivateCalMath(){
 
 }
 
-function PlusNumber(digit){
+function Calculate(digit,operation){
     
     var max = 1;
     for(i=0;i<digit;i++){
@@ -40,7 +49,40 @@ function PlusNumber(digit){
     
     var num1 = Math.floor(Math.random() * max); 
     var num2 = Math.floor(Math.random() * max);
-    var ans = num1 + num2;
+
+
+    var ans;
+    switch(operation){
+        case 'plus':    
+                        ans = num1 + num2;
+                        break;
+        case 'minus':    
+                        ans = num1 - num2;
+                        break;
+        case 'multiply':    
+                        ans = num1 * num2;
+                        break;
+        case 'divide':    
+                        ans = num1 / num2;
+                        break;
+        case 'random':    
+                        var ArrOper = ['+','-','*','/']
+                        var synt = Math.floor(Math.random() * 3); 
+                        if(ArrOper[synt] == '+'){
+                            ans = num1 + num2;
+                        }else if(ArrOper[synt] == '-'){
+                            ans = num1 - num2;
+                        }else if(ArrOper[synt] == '*'){
+                            ans = num1 * num2;
+                        }else if(ArrOper[synt] == '/'){
+                            ans = num1 / num2;
+                        }
+                        break;
+    }
+    
+    
+    
+    
     terminal.echo('\n' + num1 + ' + '+ num2 + ' = ?\n');
 
     terminal.push(function(command){
