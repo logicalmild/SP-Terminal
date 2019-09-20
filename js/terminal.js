@@ -31,7 +31,7 @@ var command = {
     }, 
     '[Mini Game]':{
         'ATC                      ':'ATC Interviewing script',
-        'CAL MATH (Incomplete)    ':'Calculate math 2 and 3 digit by random',
+        'CAL MATH                 ':'Calculate math 2 and 3 digit by random',
     }
     
 };
