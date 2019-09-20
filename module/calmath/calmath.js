@@ -55,26 +55,34 @@ function Calculate(digit,operation){
     switch(operation){
         case 'plus':    
                         ans = num1 + num2;
+                        operation = '+';
                         break;
         case 'minus':    
                         ans = num1 - num2;
+                        operation = '-';
                         break;
         case 'multiply':    
                         ans = num1 * num2;
+                        operation = 'x';
                         break;
         case 'divide':    
                         ans = num1 / num2;
+                        operation = '/';
                         break;
         case 'random':    
                         var ArrOper = ['+','-','*','/']
                         var synt = Math.floor(Math.random() * 3); 
                         if(ArrOper[synt] == '+'){
                             ans = num1 + num2;
+                            operation = '+';
                         }else if(ArrOper[synt] == '-'){
+                            operation = '-';
                             ans = num1 - num2;
                         }else if(ArrOper[synt] == '*'){
+                            operation = 'x';
                             ans = num1 * num2;
                         }else if(ArrOper[synt] == '/'){
+                            operation = '/';
                             ans = num1 / num2;
                         }
                         break;
@@ -83,7 +91,7 @@ function Calculate(digit,operation){
     
     
     
-    terminal.echo('\n' + num1 + ' + '+ num2 + ' = ?\n');
+    terminal.echo('\n' + num1 + ' ' + operation + ' '+ num2 + ' = ?\n');
 
     terminal.push(function(command){
         terminal.echo('\nAnswer is ' + ans);
