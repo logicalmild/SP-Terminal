@@ -104,7 +104,7 @@ function Calculate(digit,operation){
             }
             else{
                 terminal.clear();
-                Calculate(digit);
+                Calculate(digit,operation);
             }
         });
 
