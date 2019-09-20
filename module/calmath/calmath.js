@@ -46,7 +46,7 @@ function PlusNumber(digit){
     terminal.push(function(command){
         terminal.echo('Answer is ' + ans);
         terminal.echo('\n\nNext press enter.');
-        terminal.echo('\nExit choose 1.');
+        terminal.echo('\nBack to home menu choose 1.');
 
         terminal.push(function(command){
             if(command == '1'){
