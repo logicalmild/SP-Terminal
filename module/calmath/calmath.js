@@ -51,7 +51,7 @@ function Calculate(digit,operation){
     var num2 = Math.floor(Math.random() * max);
 
 
-    var ans;
+    var ans = 0;
     switch(operation){
         case 'plus':    
                         ans = num1 + num2;
