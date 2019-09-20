@@ -41,7 +41,7 @@ function PlusNumber(digit){
     var num1 = Math.floor(Math.random() * max); 
     var num2 = Math.floor(Math.random() * max);
     var ans = num1 + num2;
-    terminal.echo(num1 + ' + '+ num2 + '= ?');
+    terminal.echo('\n' + num1 + ' + '+ num2 + '= ?\n');
 
     terminal.push(function(command){
         terminal.echo('Answer is ' + ans);
