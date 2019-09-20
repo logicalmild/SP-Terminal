@@ -4,21 +4,24 @@ function ActivateCalMath(){
     terminal.echo('2 : Minus number');
     terminal.echo('3 : Multiply number');
     terminal.echo('4 : Divide number');
-    terminal.echo('5 : Random\n');
+    terminal.echo('5 : Random');
+    terminal.echo('6 : Exit\n');
 
     terminal.push(function(command){
         
         terminal.clear();
         switch(command){
-            case '1':   operation = 'plus'
+            case '1':   operation = 'plus';
                     break;
-            case '2':   operation = 'minus'
+            case '2':   operation = 'minus';
                     break;
-            case '3':   operation = 'multiply'
+            case '3':   operation = 'multiply';
                     break;
-            case '4':   operation = 'divide'
+            case '4':   operation = 'divide';
                     break;
-            case '5':   operation = 'random'
+            case '5':   operation = 'random';
+                    break;
+            case '6':   location.reload();
                     break;
         }
 
