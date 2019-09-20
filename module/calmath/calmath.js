@@ -41,18 +41,19 @@ function PlusNumber(digit){
     var num1 = Math.floor(Math.random() * max); 
     var num2 = Math.floor(Math.random() * max);
     var ans = num1 + num2;
-    terminal.echo('\n' + num1 + ' + '+ num2 + '= ?\n');
+    terminal.echo('\n' + num1 + ' + '+ num2 + ' = ?\n');
 
     terminal.push(function(command){
-        terminal.echo('Answer is ' + ans);
+        terminal.echo('\nAnswer is ' + ans);
         terminal.echo('\n\nNext press enter.');
-        terminal.echo('\nBack to home menu choose 1.');
+        terminal.echo('Back to home menu choose 1.\n');
 
         terminal.push(function(command){
             if(command == '1'){
                 ActivateCalMath(); 
             }
             else{
+                terminal.clear();
                 PlusNumber(digit);
             }
         });
