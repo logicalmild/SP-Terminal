@@ -33,7 +33,7 @@ function ActivateCalMath(){
 function PlusNumber(digit){
     
     var max = 1;
-    for(i=1;i<digit;i++){
+    for(i=0;i<digit;i++){
 
         max = max * 10;
     }
