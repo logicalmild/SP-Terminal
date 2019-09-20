@@ -27,7 +27,7 @@ function ActivateCalMath(){
             Calculate(digit,operation);
 
         },{
-            prompt: 'Input digit :'
+            prompt: 'Input digit : '
         });
         
 
@@ -104,7 +104,7 @@ function Calculate(digit,operation){
             }
             else{
                 terminal.clear();
-                PlusNumber(digit);
+                Calculate(digit);
             }
         });
 
