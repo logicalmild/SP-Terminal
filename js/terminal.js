@@ -32,6 +32,7 @@ var command = {
     '[Mini Game]':{
         'ATC                      ':'ATC Interviewing script',
         'CAL MATH                 ':'Calculate math 2 and 3 digit by random',
+        'CHAT BOT                 ':'Baby Bot',
     }
     
 };
