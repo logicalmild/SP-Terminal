@@ -1,5 +1,5 @@
 function ActivateCalMath(){
-    
+    terminal.clear();
     terminal.echo('1 : Plus number');
     terminal.echo('2 : Minus number');
     terminal.echo('3 : Multiply number');
@@ -36,8 +36,28 @@ function PlusNumber(digit){
 
         max = max * 10;
     }
+    
+    var num1 = Math.floor(Math.random() * max); 
+    var num2 = Math.floor(Math.random() * max);
+    var ans = num1 + num2;
 
-    terminal.echo(max);
-    //var index = Math.floor(Math.random() * (ArrQ.length-1)); 
+    terminal.push(function(command){
+        terminal.echo('Answer is ' + ans);
+        terminal.echo('\n\nNext press enter.');
+        terminal.echo('\nExit choose 1.');
+
+        terminal.push(function(command){
+            if(command == '1'){
+                ActivateCalMath(); 
+            }
+            else{
+                PlusNumber(digit);
+            }
+        });
+
+    },{
+        prompt: 'Press enter for show answer.'
+    });
+
 
 }
