@@ -52,37 +52,38 @@ function Calculate(digit,operation){
 
 
     var ans = 0;
+    var symbol ='';
     switch(operation){
         case 'plus':    
                         ans = num1 + num2;
-                        operation = '+';
+                        symbol = '+';
                         break;
         case 'minus':    
                         ans = num1 - num2;
-                        operation = '-';
+                        symbol = '-';
                         break;
         case 'multiply':    
                         ans = num1 * num2;
-                        operation = 'x';
+                        symbol = 'x';
                         break;
         case 'divide':    
                         ans = num1 / num2;
-                        operation = '/';
+                        symbol = '/';
                         break;
         case 'random':    
                         var ArrOper = ['+','-','*','/']
                         var synt = Math.floor(Math.random() * 3); 
                         if(ArrOper[synt] == '+'){
                             ans = num1 + num2;
-                            operation = '+';
+                            symbol = '+';
                         }else if(ArrOper[synt] == '-'){
-                            operation = '-';
+                            symbol = '-';
                             ans = num1 - num2;
                         }else if(ArrOper[synt] == '*'){
-                            operation = 'x';
+                            symbol = 'x';
                             ans = num1 * num2;
                         }else if(ArrOper[synt] == '/'){
-                            operation = '/';
+                            symbol = '/';
                             ans = num1 / num2;
                         }
                         break;
@@ -91,7 +92,7 @@ function Calculate(digit,operation){
     
     
     
-    terminal.echo('\n' + num1 + ' ' + operation + ' '+ num2 + ' = ?\n');
+    terminal.echo('\n' + num1 + ' ' + symbol + ' '+ num2 + ' = ?\n');
 
     terminal.push(function(command){
         terminal.echo('\nAnswer is ' + ans);
