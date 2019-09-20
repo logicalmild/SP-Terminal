@@ -4,7 +4,7 @@ function ActivateCalMath(){
     terminal.echo('2 : Minus number');
     terminal.echo('3 : Multiply number');
     terminal.echo('4 : Divide number');
-    terminal.echo('5 : Random');
+    terminal.echo('5 : Random\n');
 
     terminal.push(function(command){
         
