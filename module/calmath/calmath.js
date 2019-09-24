@@ -1,3 +1,5 @@
+var CountQuestion = 0;
+
 function ActivateCalMath(){
     terminal.clear();
     terminal.echo('1 : Plus number');
@@ -27,7 +29,16 @@ function ActivateCalMath(){
 
         terminal.push(function(digit){
 
-            Calculate(digit,operation);
+            terminal.push(function(Question){
+                CountQuestion = Question;
+                Calculate(digit,operation,0);
+            },{
+                prompt:'Please input number of question : '
+            });
+
+
+
+            
 
         },{
             prompt: 'Input digit : '
@@ -42,7 +53,10 @@ function ActivateCalMath(){
 
 }
 
-function Calculate(digit,operation){
+
+
+
+function Calculate(digit,operation,num){
     
     var max = 1;
     for(i=0;i<digit;i++){
@@ -107,8 +121,18 @@ function Calculate(digit,operation){
                 ActivateCalMath(); 
             }
             else{
-                terminal.clear();
-                Calculate(digit,operation);
+
+                if(num < CountQuestion){
+
+                    terminal.clear();
+                    Calculate(digit,operation,num+1);
+
+                }else{
+
+                    terminal.echo('Hello');
+                }       
+
+                
             }
         });
 
