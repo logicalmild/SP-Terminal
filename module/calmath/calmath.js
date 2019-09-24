@@ -150,7 +150,7 @@ function Calculate(digit,operation,num){
                         terminal.echo('You use time ' + sum + ' s.\n');
 
                         terminal.push(function(command){
-
+                            ActivateCalMath();
                         },{
                             propmt: 'Enter for exit to menu.'
                         });
