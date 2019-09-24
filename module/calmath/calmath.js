@@ -112,13 +112,14 @@ function Calculate(digit,operation,num){
     
     t0 = performance.now();
     
-    terminal.echo('\n Question '+ ( CountQuestion + 1) + ' : ' + num1 + ' ' + symbol + ' '+ num2 + ' = ?\n');
+    terminal.echo('\n Question '+ (num + 1) + ' : ' + num1 + ' ' + symbol + ' '+ num2 + ' = ?\n');
 
     terminal.push(function(command){
         t1 = performance.now();
         var t_result = t1-t0;
+        t_result = millisToMinutesAndSeconds(t_result);
         ResultTime.push(t_result);
-        terminal.echo('\nAnswer is ' + ans + ' Time : ' + t_result);
+        terminal.echo('\nAnswer is ' + ans + '\nTime : ' + t_result + 's.');
         terminal.echo('\n\nNext press enter.');
         terminal.echo('Back to home menu choose 1.\n');
 
@@ -158,3 +159,10 @@ function Calculate(digit,operation,num){
 
 
 }
+
+function millisToMinutesAndSeconds(millis) {
+    var minutes = Math.floor(millis / 60000);
+    var seconds = ((millis % 60000) / 1000).toFixed(0);
+    return seconds;
+  }
+  
