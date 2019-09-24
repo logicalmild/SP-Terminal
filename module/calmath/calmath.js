@@ -149,7 +149,7 @@ function Calculate(digit,operation,num){
                         terminal.echo('Average time per question is ' + avg + ' s.');
                         terminal.echo('You use time ' + sum + ' s.\n');
 
-                        terminal.push(function(command){
+                        terminal.push(function(command2){
                             ActivateCalMath();
                         },{
                             propmt: 'Enter for exit to menu.'
