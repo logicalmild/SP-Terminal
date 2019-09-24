@@ -152,7 +152,7 @@ function Calculate(digit,operation,num){
                         terminal.push(function(command2){
                             ActivateCalMath();
                         },{
-                            propmt: 'Enter for exit to menu.'
+                            prompt: 'Enter for exit to menu.'
                         });
                 }       
 
