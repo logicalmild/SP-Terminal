@@ -112,14 +112,15 @@ function Calculate(digit,operation,num){
     
     t0 = performance.now();
     
-    terminal.echo('\n Question '+ (num + 1) + ' : ' + num1 + ' ' + symbol + ' '+ num2 + ' = ?\n');
+    terminal.echo('\nQuestion '+ (num + 1) + ' : ' + num1 + ' ' + symbol + ' '+ num2 + ' = ?\n');
 
     terminal.push(function(command){
         t1 = performance.now();
         var t_result = t1-t0;
         t_result = millisToMinutesAndSeconds(t_result);
+        t_result = parseInt(t_result);
         ResultTime.push(t_result);
-        terminal.echo('\nAnswer is ' + ans + '\nTime : ' + t_result + 's.');
+        terminal.echo('\nAnswer is ' + ans + '\nTime : ' + t_result + ' s.');
         terminal.echo('\n\nNext press enter.');
         terminal.echo('Back to home menu choose 1.\n');
 
@@ -128,12 +129,12 @@ function Calculate(digit,operation,num){
                 ActivateCalMath(); 
             }
             else{
-
+                num = num + 1;
                 if(num < CountQuestion){
                     
                     terminal.clear();
                     
-                    Calculate(digit,operation,num+1);
+                    Calculate(digit,operation,num);
 
                 }else{
                         var avg = 0;
@@ -144,9 +145,15 @@ function Calculate(digit,operation,num){
                             sum = sum + ResultTime[i];
                         }
                         avg = avg / ResultTime.length;
+                        terminal.clear();
+                        terminal.echo('Average time per question is ' + avg + ' s.');
+                        terminal.echo('You use time ' + sum + ' s.\n');
 
-                    terminal.echo('Average time per question is ' + avg + ' s.');
-                    terminal.echo('You use time ' + avg + ' s.');
+                        terminal.push(function(command){
+
+                        },{
+                            propmt: 'Enter for exit to menu.'
+                        });
                 }       
 
                 
