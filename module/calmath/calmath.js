@@ -112,7 +112,7 @@ function Calculate(digit,operation,num){
     
     t0 = performance.now();
     
-    terminal.echo('\n' + num1 + ' ' + symbol + ' '+ num2 + ' = ?\n');
+    terminal.echo('\n Question '+ ( CountQuestion + 1) + ' : ' + num1 + ' ' + symbol + ' '+ num2 + ' = ?\n');
 
     terminal.push(function(command){
         t1 = performance.now();
