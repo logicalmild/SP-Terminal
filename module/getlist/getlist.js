@@ -14,7 +14,8 @@ function GetList(){
         success: function (data) {
             data = data.d.results;
             for(i in data){
-                terminal.echo(data[i].Title);
+                // terminal.echo(data[i].Title);
+                terminal.echo(i);
             }
 
             // text = JSON.stringify(data, null , 2);
