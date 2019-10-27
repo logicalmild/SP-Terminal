@@ -83,8 +83,14 @@ var terminal = $('#term_demo').terminal(function(command) {
             dataType: "script",
             success : function(data)
             {
-                var text = GetListInfo();
-                terminal.echo(text);
+                terminal.push(function(command){
+                    var Listname = command;
+                    var text = GetListInfo(Listname);
+                    terminal.echo(text);
+                },{
+                    prompt: 'List name > '
+                });
+                
             },
     
           });

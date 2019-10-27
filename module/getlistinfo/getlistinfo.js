@@ -1,5 +1,4 @@
-function GetListInfo(){
-    var Listname = 'ATC_Interview';
+function GetListInfo(Listname){
     var text = '\n';
     $.ajax({
         url: _spPageContextInfo.webAbsoluteUrl + '/_api/web/lists',
