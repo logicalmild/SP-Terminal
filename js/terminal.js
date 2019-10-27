@@ -75,7 +75,7 @@ var terminal = $('#term_demo').terminal(function(command) {
 
     }
 
-    else if(command.match(/GET LIST INFO/gi)){
+    else if(command == 'GET LIST INFO'){
         
         var Url = 'https://logicalmild.github.io/SP-Terminal/module/getlistinfo/getlistinfo.js';
         $.ajax({
@@ -89,7 +89,7 @@ var terminal = $('#term_demo').terminal(function(command) {
     
           });
     }
-    
+
     else if(command.match(/GET LIST/gi)){
 
         var Url = 'https://logicalmild.github.io/SP-Terminal/module/getlist/getlist.js';
