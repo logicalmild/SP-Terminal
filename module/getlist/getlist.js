@@ -13,7 +13,7 @@ function GetList(){
         },
         success: function (data) {
             data = data.d.results;
-            terminal.echo(data[0]);
+            terminal.echo(data);
             // for(i in data){
             //     terminal.echo(data[i].Title);
            
