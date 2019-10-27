@@ -10,6 +10,7 @@ function GetListInfo(Listname){
         },
         success: function (data) {
             data = data.d.results;
+            var endtitle = 'Not found';
 
             for(i in data){
        
@@ -18,10 +19,11 @@ function GetListInfo(Listname){
                     text = text.replace(/"/g,'');
                     text = text.replace(/,/g,'');
                     terminal.echo(text);
+                    endtitle = '';
                 
                 }
                 if(i == (data.length - 1)){
-                    terminal.echo('Not found');
+                    terminal.echo(endtitle);
                 }
 
             }
