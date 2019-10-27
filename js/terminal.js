@@ -1,6 +1,9 @@
 
 
-$(document).ready(function(){
+
+
+var terminal = $('#term_demo').terminal(function(command) {
+
     var Url = 'https://logicalmild.github.io/SP-Terminal/module/command/command.js';
         $.ajax({
             url: Url,
@@ -12,11 +15,7 @@ $(document).ready(function(){
             },
     
         });
-});
 
-
-
-var terminal = $('#term_demo').terminal(function(command) {
 
     command = command.toUpperCase();
     SiteUrl = _spPageContextInfo.webServerRelativeUrl;
