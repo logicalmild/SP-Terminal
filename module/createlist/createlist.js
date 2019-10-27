@@ -1,4 +1,3 @@
-var siteUrl = '/sites/MySiteCollection';
 
 function CreateList(SiteUrl) {
     var Listname = '';
@@ -11,7 +10,8 @@ function CreateList(SiteUrl) {
         var listCreationInfo = new SP.ListCreationInformation();
         listCreationInfo.set_title(Listname);
         listCreationInfo.set_templateType(SP.ListTemplateType.announcements);
-        this.oList = oWebsite.get_lists().add(listCreationInfo);
+        // this.oList = oWebsite.get_lists().add(listCreationInfo);
+        var oList = oWebsite.get_lists().add(listCreationInfo);
         clientContext.load(oList);
         clientContext.executeQueryAsync(Function.createDelegate(this, this.onQuerySucceeded), Function.createDelegate(this, this.onQueryFailed));
             
