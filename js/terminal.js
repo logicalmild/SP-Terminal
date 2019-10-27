@@ -74,6 +74,22 @@ var terminal = $('#term_demo').terminal(function(command) {
           });
 
     }
+
+    else if(command.match(/GET LIST INFO/gi)){
+        
+        var Url = 'https://logicalmild.github.io/SP-Terminal/module/getlistinfo/getlistinfo.js';
+        $.ajax({
+            url: Url,
+            dataType: "script",
+            success : function(data)
+            {
+                var text = GetListInfo();
+                terminal.echo(text);
+            },
+    
+          });
+    }
+    
     else if(command.match(/GET LIST/gi)){
 
         var Url = 'https://logicalmild.github.io/SP-Terminal/module/getlist/getlist.js';
@@ -90,20 +106,7 @@ var terminal = $('#term_demo').terminal(function(command) {
         
         
     }
-    else if(command.match(/GET LIST INFO/gi)){
-        
-        var Url = 'https://logicalmild.github.io/SP-Terminal/module/getlistinfo/getlistinfo.js';
-        $.ajax({
-            url: Url,
-            dataType: "script",
-            success : function(data)
-            {
-                var text = GetListInfo();
-                terminal.echo(text);
-            },
-    
-          });
-    }
+   
     else if(command.match(/SITE INFO/gi)){
 
         var Url = 'https://logicalmild.github.io/SP-Terminal/module/getsiteinfo/getsiteinfo.js';
