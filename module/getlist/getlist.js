@@ -1,6 +1,6 @@
 function GetList(){
 
-    terminal.echo('Get list na');
+   
 
     var text = '\n';
     $.ajax({
@@ -12,7 +12,8 @@ function GetList(){
         'content-type': 'application/json;odata=verbose',
         },
         success: function (data) {
-            data = data.d.results;
+            data = data.d.results.Title;
+
             text = JSON.stringify(data, null , 2);
             text = text.replace(/"/g,'');
             text = text.replace(/,/g,'');
