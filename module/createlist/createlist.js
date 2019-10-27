@@ -21,8 +21,8 @@ function CreateList(SiteUrl) {
 }
 
 function onQuerySucceeded() {
-    var result = oList.get_title() + ' created.';
-    terminal.echo(result);
+    // var result = oList.get_title() + ' created.';
+    terminal.echo('Successful');
 
 }
 
