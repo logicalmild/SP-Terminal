@@ -20,6 +20,9 @@ function GetListInfo(Listname){
                     terminal.echo(text);
                 
                 }
+                if(i == data.length){
+                    terminal.echo('Not found');
+                }
                 
         
             }
