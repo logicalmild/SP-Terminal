@@ -12,7 +12,7 @@ function GetListInfo(Listname){
             data = data.d.results;
 
             for(i in data){
-                terminal.echo('i = ' + i+ ' length = '+ data.length);
+       
                 if(data[i].Title == Listname){
                     text = JSON.stringify(data[i], null , 2);
                     text = text.replace(/"/g,'');
@@ -20,11 +20,10 @@ function GetListInfo(Listname){
                     terminal.echo(text);
                 
                 }
-                if(i == data.length){
+                if(i == (data.length - 1)){
                     terminal.echo('Not found');
                 }
-                
-        
+
             }
 
         },
