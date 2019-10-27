@@ -8,21 +8,22 @@ function DeleteList() {
         var listTitle = Listname;
         var oList = oWebsite.get_lists().getByTitle(listTitle);
         oList.deleteObject();
-
-        clientContext.executeQueryAsync(Function.createDelegate(this, this.onQuerySucceeded), Function.createDelegate(this, this.onQueryFailed));
+        clientContext.executeQueryAsync();
+        terminal.clear();
+        terminal.echo('\nDelete List '+ Listname +' Successful\n');
             
     }, {
         prompt: 'List name > '
     }); 
 }
 
-function onQuerySucceeded() {
-    // var result = oList.get_title() + ' created.';
-    terminal.echo('Delete Successful');
+// function onQuerySucceeded() {
+//     // var result = oList.get_title() + ' created.';
+//     terminal.echo('Delete Successful');
 
-}
+// }
 
-function onQueryFailed(sender, args) {
-    // alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
-    terminal.echo('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
-}
+// function onQueryFailed(sender, args) {
+//     // alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
+//     terminal.echo('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
+// }
