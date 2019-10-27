@@ -13,8 +13,10 @@ function CreateList() {
         // this.oList = oWebsite.get_lists().add(listCreationInfo);
         var oList = oWebsite.get_lists().add(listCreationInfo);
         clientContext.load(oList);
-        terminal.echo('Create List '+ Listname +'Successful');
         clientContext.executeQueryAsync();
+        terminal.clear();
+        terminal.echo('\nCreate List '+ Listname +' Successful\n');
+        
             
     }, {
         prompt: 'List name > '
