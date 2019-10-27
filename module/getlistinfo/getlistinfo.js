@@ -2,36 +2,37 @@ function GetListInfo(){
     var Listname = '';
     var text;
     terminal.push(function(command2) {
-    
         Listname = command2;
-        var requestUri = SiteUrl + '/_api/web/lists/GetByTitle(\''+Listname+'\')';
-        var requestHeaders = {
-        "accept": "application/json;odata=verbose"
-        }
-        
-
+        var text = '\n';
         $.ajax({
-            url: requestUri,
+            url: _spPageContextInfo.webAbsoluteUrl + '/_api/web/lists',
             type: 'GET',
-            dataType: 'json',
             async: false,
-            headers: requestHeaders,
-            success: function (data) 
-            {      
-            
+            headers: {
+            'accept': 'application/json;odata=verbose',
+            'content-type': 'application/json;odata=verbose',
+            },
+            success: function (data) {
                 data = data.d.results;
 
-                text = JSON.stringify(data, null , 2);
-                text = text.replace(/"/g,'');
-                text = text.replace(/,/g,'');
-                terminal.echo(text);
-                
-                
+                for(i in data){
+                    terminal.echo(data[i][Listname]);
+            
+                }
+
+                // text = JSON.stringify(data, null , 2);
+                // text = text.replace(/"/g,'');
+                // text = text.replace(/,/g,'');
+                // terminal.echo(text);
+        
             },
-            error: function ajaxError(response) {
-                console.log(response.status + ' ' + response.statusText);
-            }
+
+            error: {}
+        
         });
+
+
+    return text;
 
     }, {
         prompt: 'List name > '
