@@ -2,7 +2,7 @@ var LastCommand = '';
 var TitleCommand = 'SP> ';
 var ListSelected = '';
 var SiteUrl = '';
-var Version = '1.0.1.19';
+var Version = '1.0.2.0';
 var GreetingMessage = 'Welcome to terminal for SharePoint via browser interface [Version '+Version+']\nCreated by Saranchai Anunthananaruporn. All rights reserved\n\nType \'Help\' for suggest the command.\n\n';
 
 var command = {
@@ -18,6 +18,7 @@ var command = {
         'GET LIST                 ':'Show all list name of current site.',
         'GET LIST [Listname](BUG) ':'Show all properties of list.',
         'Create List              ':'Create list in current site.',
+        'Delete List              ':'Delete list in current site.',
         // 'Create List           ':'Create list data.',
         // 'Delete List           ':'Delete list data.',
     },
