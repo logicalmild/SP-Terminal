@@ -14,7 +14,11 @@ function CreateList() {
         var oList = oWebsite.get_lists().add(listCreationInfo);
         clientContext.load(oList);
         terminal.echo('Create List '+ Listname +'Successful');
-        clientContext.executeQueryAsync(); 
+        clientContext.executeQueryAsync();
+            
+    }, {
+        prompt: 'List name > '
+    }); 
 }
 
 // function onQuerySucceeded() {
