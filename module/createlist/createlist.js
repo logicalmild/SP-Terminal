@@ -13,27 +13,17 @@ function CreateList() {
         // this.oList = oWebsite.get_lists().add(listCreationInfo);
         var oList = oWebsite.get_lists().add(listCreationInfo);
         clientContext.load(oList);
-        clientContext.executeQueryAsync(function(){
-
-            terminal.echo('Create List '+ Listname +'Successful');
-
-        },function(){
-
-            terminal.echo('Create List '+ Listname +' error.');
-        });
-            
-    }, {
-        prompt: 'List name > '
-    }); 
+        terminal.echo('Create List '+ Listname +'Successful');
+        clientContext.executeQueryAsync(); 
 }
 
-function onQuerySucceeded() {
-    // var result = oList.get_title() + ' created.';
+// function onQuerySucceeded() {
+//     // var result = oList.get_title() + ' created.';
     
 
-}
+// }
 
-function onQueryFailed(sender, args) {
-    // alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
-    terminal.echo('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
-}
+// function onQueryFailed(sender, args) {
+//     // alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
+//     terminal.echo('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
+// }
