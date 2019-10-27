@@ -1,7 +1,8 @@
 function GetList(){
-    var text = '\n';
 
-    
+    terminal.echo('Get list na');
+
+    var text = '\n';
     $.ajax({
         url: _spPageContextInfo.webAbsoluteUrl + '/_api/web/lists',
         type: 'GET',

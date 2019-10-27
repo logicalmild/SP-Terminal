@@ -1,5 +1,5 @@
 function GetSiteInfo(){
-    
+    terminal.echo('get list info na');
     var text = '\n';
     var Reserve = 50;
     text = JSON.stringify(_spPageContextInfo, null , 2);
