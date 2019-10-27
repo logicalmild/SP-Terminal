@@ -21,10 +21,10 @@ function GetListInfo(){
             
                 data = data.d.results;
 
-                for(i in data){
-                    terminal.echo(data[i][Listname]);
-            
-                }
+                text = JSON.stringify(data, null , 2);
+                text = text.replace(/"/g,'');
+                text = text.replace(/,/g,'');
+                terminal.echo(text);
                 
                 
             },
