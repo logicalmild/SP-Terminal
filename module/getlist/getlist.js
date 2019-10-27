@@ -13,8 +13,10 @@ function GetList(){
         },
         success: function (data) {
             data = data.d.results;
-            data = JSON.stringify(data, null , 2);
-            terminal.echo(data);
+            text = JSON.stringify(data, null , 2);
+            text = text.replace(/"/g,'');
+            text = text.replace(/,/g,'');
+            terminal.echo(text);
             // for(i in data){
             //     terminal.echo(data[i].Title);
            
