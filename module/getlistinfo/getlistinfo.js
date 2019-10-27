@@ -39,9 +39,6 @@ function GetListInfo(){
         
         });
 
-
-    return text;
-
     }, {
         prompt: 'List name > '
     }); 
