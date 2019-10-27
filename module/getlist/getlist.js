@@ -12,7 +12,11 @@ function GetList(){
         'content-type': 'application/json;odata=verbose',
         },
         success: function (data) {
-            text = data.d.results;
+            data = data.d.results;
+            text = JSON.stringify(data, null , 2);
+            text = text.replace(/"/g,'');
+            text = text.replace(/,/g,'');
+            terminal.echo(text);
       
         },
 
