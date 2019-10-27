@@ -16,7 +16,7 @@ var command = {
     },
     '[List]':{
         'GET LIST                 ':'Show all list name of current site.',
-        'GET LIST [Listname](BUG) ':'Show all properties of list.',
+        'GET LIST INFO            ':'Show all properties of list.',
         'Create List              ':'Create list in current site.',
         'Delete List              ':'Delete list in current site.',
         // 'Create List           ':'Create list data.',
@@ -92,6 +92,20 @@ var terminal = $('#term_demo').terminal(function(command) {
         
         }
         
+    }
+    else if(command.match(/GET LIST INFO/gi)){
+        
+        var Url = 'https://logicalmild.github.io/SP-Terminal/module/getlistinfo/getlistinfo.js';
+        $.ajax({
+            url: Url,
+            dataType: "script",
+            success : function(data)
+            {
+                var text = GetListInfo();
+                terminal.echo(text);
+            },
+    
+          });
     }
     else if(command.match(/SITE INFO/gi)){
 
