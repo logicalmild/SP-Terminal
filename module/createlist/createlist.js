@@ -13,7 +13,14 @@ function CreateList() {
         // this.oList = oWebsite.get_lists().add(listCreationInfo);
         var oList = oWebsite.get_lists().add(listCreationInfo);
         clientContext.load(oList);
-        clientContext.executeQueryAsync(Function.createDelegate(this, this.onQuerySucceeded), Function.createDelegate(this, this.onQueryFailed));
+        clientContext.executeQueryAsync(function(){
+
+            terminal.echo('Create List '+ Listname +'Successful');
+
+        },function(){
+
+            terminal.echo('Create List '+ Listname +' error.');
+        });
             
     }, {
         prompt: 'List name > '
@@ -22,7 +29,7 @@ function CreateList() {
 
 function onQuerySucceeded() {
     // var result = oList.get_title() + ' created.';
-    terminal.echo('Successful');
+    
 
 }
 

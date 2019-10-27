@@ -1,4 +1,4 @@
-function Delete() {
+function DeleteList() {
     var Listname = '';
     terminal.push(function(command2) {
     
