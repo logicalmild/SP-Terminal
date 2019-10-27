@@ -75,22 +75,19 @@ var terminal = $('#term_demo').terminal(function(command) {
 
     }
     else if(command.match(/GET LIST/gi)){
-        if(command == 'GET LIST'){
 
-            var text = GetList('title');
-            terminal.echo(text);
-
-        }
-        else{
-
-            var ListName = command.split(' ');
-            ListName.splice(0,2);
-            ListName = ListName.toString();
-            ListName = ListName.replace(/,/g,' ');
-            var text = GetList(ListName);
-            terminal.echo(text);
+        var Url = 'https://logicalmild.github.io/SP-Terminal/module/getlist/getlist.js';
+        $.ajax({
+            url: Url,
+            dataType: "script",
+            success : function(data)
+            {
+                var text = GetList();
+                terminal.echo(text);
+            },
+    
+          });
         
-        }
         
     }
     else if(command.match(/GET LIST INFO/gi)){
