@@ -17,6 +17,7 @@ var command = {
     '[List]':{
         'GET LIST                 ':'Show all list name of current site.',
         'GET LIST [Listname](BUG) ':'Show all properties of list.',
+        'Create List              ':'Create list in current site.',
         // 'Create List           ':'Create list data.',
         // 'Delete List           ':'Delete list data.',
     },
@@ -187,6 +188,19 @@ var terminal = $('#term_demo').terminal(function(command) {
             success : function(data)
             {
                 LogOut();
+            },
+          });   
+    }
+    
+    else if(command.match(/CREATE LIST/gi)){
+        
+        var Url = 'https://logicalmild.github.io/SP-Terminal/module/createlist/createlist.js';
+        $.ajax({
+            url: Url,
+            dataType: "script",
+            success : function(data)
+            {
+                CreateList();
             },
           });   
     }
