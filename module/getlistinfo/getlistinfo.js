@@ -19,12 +19,12 @@ function GetListInfo(){
             success: function (data) 
             {      
             
-                data = data.d; 
-                text = JSON.stringify(data, null , 4);
-                text = text.replace(/"/g,'');
-                text = text.replace(/,/g,'');
-                // text = text.replace(/{/g,'');
-                // text = text.replace(/}/g,'');
+                data = data.d.results;
+
+                for(i in data){
+                    terminal.echo(data[i][Listname]);
+            
+                }
                 
                 
             },
