@@ -12,12 +12,15 @@ function GetList(){
         'content-type': 'application/json;odata=verbose',
         },
         success: function (data) {
-            data = data.d.results.Title;
+            data = data.d.results;
+            for(i in data){
+                terminal.echo(data[i].Title);
+            }
 
-            text = JSON.stringify(data, null , 2);
-            text = text.replace(/"/g,'');
-            text = text.replace(/,/g,'');
-            terminal.echo(text);
+            // text = JSON.stringify(data, null , 2);
+            // text = text.replace(/"/g,'');
+            // text = text.replace(/,/g,'');
+            // terminal.echo(text);
       
         },
 
