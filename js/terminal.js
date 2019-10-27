@@ -85,8 +85,8 @@ var terminal = $('#term_demo').terminal(function(command) {
             {
                 terminal.push(function(command){
                     var Listname = command;
-                    var text = GetListInfo(Listname);
-                    terminal.echo(text);
+                    GetListInfo(Listname);
+               
                 },{
                     prompt: 'List name > '
                 });

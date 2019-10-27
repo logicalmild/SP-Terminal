@@ -33,5 +33,5 @@ function GetListInfo(Listname){
     });
 
 
-    return text;
+  
 }
