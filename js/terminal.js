@@ -1,6 +1,9 @@
 
-
-
+var SiteUrl = '';
+var LastCommand = '';
+var TitleCommand = 'SP> ';
+var ListSelected = '';
+var GreetingMessage = 'Welcome to terminal for SharePoint via browser interface [Version '+Version+']\nCreated by Saranchai Anunthananaruporn. All rights reserved\n\nType \'Help\' for suggest the command.\n\n';
 
 var terminal = $('#term_demo').terminal(function(command) {
 
