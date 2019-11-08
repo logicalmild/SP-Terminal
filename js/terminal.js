@@ -8,7 +8,7 @@ var GreetingMessage = 'Welcome to terminal for SharePoint via browser interface 
 var command = {
     '[Site Information]':{
         'SITE INFO                ':'Show all information of current site.',
-        'GET SUBSITE              ':'Show all subsite.',
+        // 'GET SUBSITE              ':'Show all subsite.', // bug
     },
     '[API]':{
         'GET API                  ':'Show all SharePoint API.',
@@ -17,13 +17,10 @@ var command = {
     '[List]':{
         'GET LIST                 ':'Show all list name of current site.',
         'GET LIST INFO            ':'Show all properties of list.',
-        'Create List              ':'Create list in current site.',
-        'Delete List              ':'Delete list in current site.',
+        'Create List  [bug]       ':'Create list in current site.',
+        'Delete List  [bug]       ':'Delete list in current site.',
         // 'Create List           ':'Create list data.',
         // 'Delete List           ':'Delete list data.',
-    },
-    '[Retrieve Data]':{
-        'QUERY LIST [Listname]    ':'Query data of list.', 
     },
     '[Tools]':{
         'SPBoxQuery               ':'Tools for query data in sharepoint', 
@@ -35,9 +32,8 @@ var command = {
         'CREDIT                   ':'Credits',
     }, 
     '[Mini Game]':{
-        // 'ATC                      ':'ATC Interviewing script',
         'CAL MATH                 ':'Calculate math 2 and 3 digit by random',
-        'CHAT BOT                 ':'Baby Bot',
+        // 'CHAT BOT                 ':'Baby Bot', //not create
     }
     
 };
@@ -156,21 +152,6 @@ var terminal = $('#term_demo').terminal(function(command) {
         
 
     }
-    else if(command.match(/QUERY LIST/gi)){
-        
-        var Url = 'https://logicalmild.github.io/SP-Terminal/module/querylist/querylist.js';
-        $.ajax({
-            url: Url,
-            dataType: "script",
-            success : function(data)
-            {
-                ModuleQueryList();
-            },
-    
-          });
-        
-
-    }
     else if(command.match(/GET API/gi)){
         
         var Url = 'https://logicalmild.github.io/SP-Terminal/module/api/api.js';
@@ -188,19 +169,7 @@ var terminal = $('#term_demo').terminal(function(command) {
         
 
     }
-    // else if(command.match(/ATC/gi)){
-    //     var Url = 'https://logicalmild.github.io/SP-Terminal/module/ATC/ATC.js';
-    //     $.ajax({
-    //         url: Url,
-    //         dataType: "script",
-    //         success : function(data)
-    //         {
-    //             ActivateATC();
-    //         },
-    
-    //       });
-        
-    // }
+
     else if(command.match(/SPBOXQUERY/gi)){
         
         window.open('SPBoxQuery.aspx', '_blank');
