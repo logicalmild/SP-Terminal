@@ -25,6 +25,9 @@ var command = {
     '[Retrieve Data]':{
         'QUERY LIST [Listname]    ':'Query data of list.', 
     },
+    '[Tools]':{
+        'SPBoxQuery               ':'Tools for query data in sharepoint', 
+    },
     '[Others]':{
         'HELP                     ':'Show command and informations.',
         'CLEAR                    ':'Clear screen.',
@@ -32,7 +35,7 @@ var command = {
         'CREDIT                   ':'Credits',
     }, 
     '[Mini Game]':{
-        'ATC                      ':'ATC Interviewing script',
+        // 'ATC                      ':'ATC Interviewing script',
         'CAL MATH                 ':'Calculate math 2 and 3 digit by random',
         'CHAT BOT                 ':'Baby Bot',
     }
@@ -185,17 +188,22 @@ var terminal = $('#term_demo').terminal(function(command) {
         
 
     }
-    else if(command.match(/ATC/gi)){
-        var Url = 'https://logicalmild.github.io/SP-Terminal/module/ATC/ATC.js';
-        $.ajax({
-            url: Url,
-            dataType: "script",
-            success : function(data)
-            {
-                ActivateATC();
-            },
+    // else if(command.match(/ATC/gi)){
+    //     var Url = 'https://logicalmild.github.io/SP-Terminal/module/ATC/ATC.js';
+    //     $.ajax({
+    //         url: Url,
+    //         dataType: "script",
+    //         success : function(data)
+    //         {
+    //             ActivateATC();
+    //         },
     
-          });
+    //       });
+        
+    // }
+    else if(command.match(/SPBOXQUERY/gi)){
+        
+        window.open('SPBoxQuery.aspx', '_blank');
         
     }
     else if(command.match(/CAL MATH/gi)){
