@@ -22,6 +22,9 @@ var command = {
         // 'Create List           ':'Create list data.',
         // 'Delete List           ':'Delete list data.',
     },
+    '[Framework]':{
+        'GLIB                     ':'Form & Workflow (Guide Library)', 
+    },
     '[Tools]':{
         'SPBoxQuery               ':'Tools for query data in sharepoint', 
     },
@@ -223,6 +226,18 @@ var terminal = $('#term_demo').terminal(function(command) {
             success : function(data)
             {
                 DeleteList();
+            },
+          });   
+    }
+    else if(command.match(/GLIB/gi)){
+        
+        var Url = 'https://logicalmild.github.io/SP-Terminal/module/glib/glib.js';
+        $.ajax({
+            url: Url,
+            dataType: "script",
+            success : function(data)
+            {
+                GlibStart();
             },
           });   
     }
