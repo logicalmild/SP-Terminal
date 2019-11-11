@@ -6,7 +6,7 @@ function GlibStart(){
                '2. Installation\n'+
                '3. Manual\n'+
                '4. Open Glib on github\n'+
-               ''+
+               '5. Exit'+
                ''+
                '';
     terminal.clear();
