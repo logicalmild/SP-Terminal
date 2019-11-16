@@ -27,6 +27,7 @@ var command = {
     },
     '[Tools]':{
         'SPBoxQuery               ':'Tools for query data in sharepoint', 
+        'SPFormSetup              ':'Tools for setup form in sharepoint', 
     },
     '[Others]':{
         'HELP                     ':'Show command and informations.',
