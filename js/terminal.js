@@ -179,6 +179,11 @@ var terminal = $('#term_demo').terminal(function(command) {
         window.open('SPBoxQuery.aspx', '_blank');
         
     }
+    else if(command.match(/SPFORMSETUP/gi)){
+        
+        window.open('SPFormSetup.aspx', '_blank');
+        
+    }
     else if(command.match(/CAL MATH/gi)){
         var Url = 'https://logicalmild.github.io/SP-Terminal/module/calmath/calmath.js';
         $.ajax({
